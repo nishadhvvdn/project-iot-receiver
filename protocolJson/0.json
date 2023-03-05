@@ -1,0 +1,4062 @@
+{
+	"FrameFormat": {
+		"Rev": {
+			"Length": "2",
+			"Type": "int"
+		},
+		"Count": {
+			"Length": "2",
+			"Type": "int"
+		},
+		"MessageID": {
+			"Length": "1",
+			"Type": "int"
+		},
+		"CountryCode": {
+			"Length": "1",
+			"Type": "int"
+		},
+		"RegionCode": {
+			"Length": "2",
+			"Type": "int"
+		},
+		"CellID": {
+			"Length": "2",
+			"Type": "int"
+		},
+		"MeterID": {
+			"Length": "2",
+			"Type": "int"
+		},
+		"Action": {
+			"Length": "1",
+			"Type": "int"
+		},
+		"Attribute": {
+			"Length": "1",
+			"Type": "int"
+		},
+		"Data": {},
+		"CRC": {
+			"Length": "2"
+		}
+	},
+	"Actions": {
+		"COLLECTOR_REGISTERATION": "01",
+		"METER_REGISTERATION": "02",
+		"COLLECTOR_DATA_UPLOAD": "03",
+		"ACTION_FOR_DEVICE": "04",
+		"EVENTS_ALARM_DATA": "05",
+		"COLLECTOR_DEREGISTERATION": "07",
+		"METER_DEREGISTERATION": "08",
+		"NODE_PING": "09",
+		"CONFIGURATION": "0a",
+		"ENDPOINT_REGISTERATION": "0d",
+		"ENDPOINT_DEREGISTERATION": "0e",
+		"COLLECTOR_FIRMWARE_UPGRADE": "0b",
+		"ITM_FIRMWARE_UPGRADE": "0f",
+		"METER_FIRMWARE_UPGRADE": "0c",
+		"METERCARD_FIRMWARE_UPGRADE": "11",
+		"MAC_ACL": "10",
+		"LOCK": "12",
+		"UNLOCK": "13",
+		"LOGS": "14",
+		"REBOOT": "15",
+		"DELTALINK_DEREGISTER": "16",
+		"DELTALINK_FIRMWARE_UPGRADE": "17",
+		"FACTORY_RESET": "18",
+		"CELLULAR_FIRMWARE_UPGRADE": "19",
+		"BLUETOOTH_FIRMWARE_UPGRADE": "1A",
+		"DELTALINK_REGISTER": "1b",
+		"ENDPOINT_UPDATE": "1c",
+		"BACKHAUL": "1d",
+		"HS_FRONTHAUL": "1e",
+		"METER_FRONTHAUL": "1f",
+		"Configuration_Meter": "20",
+		"Cloud_Connectivity": "21",
+		"System_Settings": "22",
+		"DATA_CONSUMPTION": "23",
+		"DHCP_CONFIG": "25",
+		"DELTALINK_STATUS": "24",
+		"SET_BACKHAUL_CONFIGURATION": "30",
+		"SET_HS_FRONTHAUL_CONFIGURATION": "31",
+		"SET_METER_FRONTHAUL_CONFIGURATION": "32",
+		"SET_METER_CONFIGURATION": "33",
+		"SET_CLOUD_CONNECTIVITY": "34",
+		"SET_SYSTEM_SETTINGS": "35",		
+		"UPLOAD_CONFIG_SETTINGS": "36",
+		"SELFHEALEDMETER_DEREGISTERATION":"37",
+		"DATA_RATE": "38"
+	},
+	"ActionAttribute": {
+		"COLLECTOR_REGISTERATION": {
+			"REGISTRATION_PARA": "01",
+			"DEVICE_DETAILS": "02",
+			"HS_CONFIGURATION": "03",
+			"SUCCESS": "04",
+			"HH_Success": "05",
+			"SET_DEVICE_CONFIG": "07",
+			"GET_DEVICE_CONFIG": "08"
+		},
+		
+		"DELTALINK_REGISTER": {
+			"REGISTRATION_PARA": "01",
+			"DL_CONFIG": "02",
+			"SUCCESS": "03"
+		},
+		"COLLECTOR_DATA_UPLOAD": {
+			"ON_DEMAND_HS_DATA": "01",
+			"ON_DEMAND_METER_DATA": "02",
+			"COMBINED_TRANSACTIONAL_DATA": "03"
+		},
+		"METER_REGISTERATION": {
+			"REGISTRATION_PARA": "01",
+			"DEVICE_DETAILS": "02",
+			"METER_CONFIGURATION": "03",
+			"SUCCESS": "04",
+			"SET_DEVICE_CONFIG": "05",
+			"GET_DEVICE_CONFIG": "06"
+		},
+		"ACTION_FOR_DEVICE": {
+			"METER_CONNECT": "01",
+			"METER_DISCONNECT": "02"
+		},
+		"EVENTS_ALARM_DATA": {
+			"ALL_ALARMS": "01"
+		},
+		"COLLECTOR_DEREGISTERATION": {
+			"HYPERSPROUT_DELETE": "01",
+			"HYPERHUB_DELETE": "02"
+		},
+		"METER_DEREGISTERATION": {
+			"METER_DELETE": "01"
+		},
+		"DELTALINK_DEREGISTER": {
+			"DELTALINK_DELETE": "01"
+		},
+		"NODE_PING": {
+			"METER_PING": "01",
+			"DELTALINK_PING": "02"
+		},
+		"CONFIGURATION": {
+			"METER_WIFI": "01",
+			"HYPERSPROUT_WIFI": "02",
+			"HS_DOWNLOAD": "03",
+			"METER_DOWNLOAD": "04",
+			"DELTALINK_BANDWIDTH": "05",
+			"METER_BANDWIDTH": "06",
+			"HS_BANDWIDTH": "07",
+			"HH_BANDWIDTH": "08"
+		},
+		"ENDPOINT_REGISTERATION": {
+			"ALL_DEVICE": "01"
+		},
+		"ENDPOINT_DEREGISTERATION": {
+			"ALL_DEVICE": "01"
+		},
+		"ENDPOINT_UPDATE": {
+			"ALL_DEVICE": "01"
+		},
+		"COLLECTOR_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": "03"
+		},
+		"ITM_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": "03"
+		},
+		"CELLULAR_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": "03"
+		},
+		"BLUETOOTH_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": "03"
+		},
+		"METER_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": "03"
+		},
+		"METERCARD_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": "03"
+		},
+		"DELTALINK_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": "03"
+		},
+		"MAC_ACL": {
+			"DV_URL_MAC_ACL": "01",
+			"HS_URL_MAC_ACL": "02",
+			"ALL_URL_MAC_ACL": "03",
+			"MAC_ACL_REGISTER": "04",
+			"MAC_ACL_DEREGISTER": "05",
+			"MC_DV_URL_MAC_ACL": "06",
+			"MC_HS_URL_MAC_ACL": "07",
+			"MC_ALL_URL_MAC_ACL": "08",
+			"DL_DV_URL_MAC_ACL": "09",
+			"DL_HS_URL_MAC_ACL": "0a",
+			"DL_ALL_URL_MAC_ACL": "0b"
+		},
+		"LOGS": {
+			"METER_CLEAR_LOGS": "01",
+			"HS_CLEAR_LOGS": "02",
+			"HH_CLEAR_LOGS": "03",
+			"DL_CLEAR_LOGS": "04",
+			"METER_FETCH": "05",
+			"HS_FETCH": "06",
+			"HH_FETCH": "07",
+			"DL_FETCH": "08",
+			"METER_VERBOSITY": "09",
+			"HH_VERBOSITY": "10",
+			"HS_VERBOSITY": "11",
+			"DL_VERBOSITY": "12"
+		},
+		"FACTORY_RESET": {
+			"HS_FULL_FACTORY_RESET": "01",
+			"HS_SHALLOW_FACTORY_RESET": "02",
+			"HH_FULL_FACTORY_RESET": "03",
+			"HH_SHALLOW_FACTORY_RESET": "04",
+			"METER_FULL_FACTORY_RESET": "05",
+			"METER_SHALLOW_FACTORY_RESET": "06",
+			"DL_FULL_FACTORY_RESET": "07",
+			"DL_SHALLOW_FACTORY_RESET": "08"
+		},
+		"LOCK": {
+			"HS_LOCK": "01",
+			"HH_LOCK": "02",
+			"METER_LOCK": "03"
+		},
+		"UNLOCK": {
+			"HS_UNLOCK": "01",
+			"HH_UNLOCK": "02",
+			"METER_UNLOCK": "03"
+		},
+		"REBOOT": {
+			"HS_REBOOT": "01",
+			"HH_REBOOT": "02",
+			"METER_REBOOT": "03",
+			"DL_REBOOT": "04"
+		},
+		"BACKHAUL": {
+			"CELLULAR": "01",
+			"ETHERNET": "02",
+			"ADVANCED": "03",
+			"CARRIER_LIST": "04"
+		},
+		"HS_FRONTHAUL": {
+			"RADIO_2_4": "01",
+			"RADIO_5_L": "02",
+			"RADIO_5_H": "03",
+			"MESH_2_4": "04",
+			"MESH_5_L": "05",
+			"HOTSPOT_2_4": "06",
+			"HOTSPOT_5": "07",
+			"HS_DHCP": "08"
+		},
+		"METER_FRONTHAUL": {
+			"METER_RADIO": "01",
+			"METER_MESH": "02",
+			"METER_HOTSPOT": "03",
+			"METER_DHCP": "04",
+			"METER_SCAN": "05"
+		},
+		"Configuration_Meter": {
+			"Meter_Config": "01"
+		},
+		"Cloud_Connectivity": {
+			"HS_Connectivity": "01"
+		},
+		"System_Settings": {
+			"HS_System_Settings": "02",
+			"Meter_System_Settings": "01"
+		},
+		"DHCP_CONFIG": {
+			"DHCP_CONFIG" : "01"
+		},
+		"DELTALINK_STATUS": {
+			"DELTALINK_STATUS": "01"
+		},
+		"UPLOAD_CONFIG_SETTINGS": {
+			"UPLOAD_METER_CONFIG": "01",
+			"UPLOAD_HS_CONFIG": "02"
+		},
+		"DATA_CONSUMPTION":{
+		  "DATA_CONSUMPTION":"01"
+		},
+		"SET_BACKHAUL_CONFIGURATION": {
+			"CELLULAR": "01",
+			"ETHERNET": "02",
+			"ADVANCED": "03",
+			"CARRIER_LIST": "04"
+		},
+		"SET_HS_FRONTHAUL_CONFIGURATION": {
+			"RADIO_2_4": "01",
+			"RADIO_5_L": "02",
+			"RADIO_5_H": "03",
+			"MESH_2_4": "04",
+			"MESH_5_L": "05",
+			"HOTSPOT_2_4": "06",
+			"HOTSPOT_5": "07",
+			"HS_DHCP": "08"
+		},
+		"SET_METER_FRONTHAUL_CONFIGURATION": {
+			"METER_RADIO": "01",
+			"METER_MESH": "02",
+			"METER_HOTSPOT": "03",
+			"METER_DHCP": "04",
+			"METER_SCAN": "05"
+		},
+		"SET_METER_CONFIGURATION": {
+			"Meter_Config": "01"
+		},
+		"SET_CLOUD_CONNECTIVITY": {
+			"HS_Connectivity": "01"
+		},
+		"SET_SYSTEM_SETTINGS": {
+			"HS_System_Settings": "02",
+			"Meter_System_Settings": "01"
+		},
+		"SELFHEALEDMETER_DEREGISTERATION":{
+			"SELFHEALEDMETER_DELETE": "01"
+		},
+		"DATA_RATE": {
+			"METER_DATA_RATE": "01",
+			"HS_DATA_RATE": "02",
+			"HH_DATA_RATE": "03",
+			"DL_DATA_RATE": "04"
+		}
+	},
+	"COLLECTOR_REGISTERATION": {
+		
+		"REGISTRATION_PARA": {
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			},
+			"MACID": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"DEVICEID": {
+				"Type": "string",
+				"Length": "28"
+			},
+			"AccessPointIP": {
+				"Type": "ipint",
+				"Length": "4"
+			},
+			"AccessPointPassword": {
+				"Type": "passtring",
+				"Length": "20"
+			},
+			"iTMBoard": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"iTMHardwareVersion": {
+				"Type": "vint",
+				"Length": "2"
+			},
+			"iTMFirmwareVersion": {
+				"Type": "vint",
+				"Length": "3"
+			},
+			"iNCBoard": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"iNCHardwareVersion": {
+				"Type": "vint",
+				"Length": "2"
+			},
+			"iNCFirmwareVersion": {
+				"Type": "vint",
+				"Length": "4"
+			},
+			"MAC_ID_MESH02": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"MAC_ID_MESH12": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			}
+		},
+		"SET_DEVICE_CONFIG":{
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			}
+		},
+		"COLLECTOR_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": {
+				"STATUSCODE": {
+					"Type": "int",
+					"Length": "1"
+				}
+			}
+		},
+		"ITM_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": {
+				"STATUSCODE": {
+					"Type": "int",
+					"Length": "1"
+				}
+			}
+		},
+		"CELLULAR_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": {
+				"STATUSCODE": {
+					"Type": "int",
+					"Length": "1"
+				}
+			}
+		},
+		"BLUETOOTH_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": {
+				"STATUSCODE": {
+					"Type": "int",
+					"Length": "1"
+				}
+			}
+		},
+		"METER_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": {
+				"STATUSCODE": {
+					"Type": "int",
+					"Length": "1"
+				},
+				"FirmwareVersion": {
+					"Type": "string",
+					"Length": "15"
+				}
+			}
+		},
+		"METERCARD_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": {
+				"STATUSCODE": {
+					"Type": "int",
+					"Length": "1"
+				},
+				"FirmwareVersion": {
+					"Type": "string",
+					"Length": "15"
+				}
+			}
+		},
+		"DELTALINK_FIRMWARE_UPGRADE": {
+			"START_FIRMWARE_UPDATE": {
+				"STATUSCODE": {
+					"Type": "int",
+					"Length": "1"
+				}
+			}
+		},
+		"DEVICE_DETAILS": {
+			"Latitude": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Longitude": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			},
+			"Circuit_ID": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"CT_Ratio": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"PT_Ratio": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"CT_CalibrationData": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"PT_CalibrationData": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"HSID": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"TransformerRating": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"TransformerType": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"RatedVoltage": {
+				"Type": "int",
+				"Length": "4"
+			},
+			"Phase": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"Frequency": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"CertificationNumber": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"UtilityID": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApplicableStandard": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"TransformerClass": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"MAC_ID_GPRS": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"MAC_ID_WiFi": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"MAC_ID_WiFi_5G": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"MAC_ID_ETH": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"IP_address_WiFi": {
+				"Type": "char",
+				"Length": "4"
+			},
+			"SimCardNumber": {
+				"Type": "string",
+				"Length": "10"
+			},
+			"ESN": {
+				"Type": "string",
+				"Length": "10"
+			},
+			"CountryCode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"RegionCode": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"SSID_Name": {
+				"Type": "string",
+				"Length": "6"
+			},
+			"AccessPointPassword": {
+				"Type": "string",
+				"Length": "6"
+			}
+		},
+		"GET_DEVICE_CONFIG":{
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			},
+			"Username": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"Password": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"Sim_Pin": {
+				"Type": "string",
+				"Length": "5"
+			},
+			"Network_Selection": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Carrier": {
+				"Type": "string",
+				"Length": "11"
+			},		
+			"bMode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"bGateway": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"bIP": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"bSubnet": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"bPrimary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"bSecondary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			},		
+			"Primary_Bachaul": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Auto_Switchover": {
+				"Type": "int",
+				"Length": "1"
+			},
+
+			"r2_radio_mode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r2_chan_bw": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r2_channel": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r2_txpower": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r2_guard_interval": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r2_stream_selection": {
+				"Type": "int",
+				"Length": "1"
+			},
+		
+			"r5l_radio_mode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5l_chan_bw": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5l_channel": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5l_txpower": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5l_guard_interval": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5l_stream_selection": {
+				"Type": "int",
+				"Length": "1"
+			},		
+			"r5h_radio_mode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5h_chan_bw": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5h_channel": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5h_txpower": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5h_guard_interval": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"r5h_stream_selection": {
+				"Type": "int",
+				"Length": "1"
+			},		
+			"m2_mesh_vap_action":{
+				"Type": "int",
+				"Length": "1"
+			},
+			"m2_meshID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"m2_SecurityType": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"m2_PSK": {
+				"Type": "string",
+				"Length": "64"
+			},					
+			"m5_mesh_vap_action":{
+				"Type": "int",
+				"Length": "1"
+			},
+			"m5_meshID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"m5_SecurityType": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"m5_PSK": {
+				"Type": "string",
+				"Length": "64"
+			},			
+			"h2_vap_availabililty": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"h2_vap_action":{
+				"Type": "int",
+				"Length": "1"
+			},		
+			"h2_Status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"h2_SSID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"h2_WirelessSecurity": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"h2_Password": {
+				"Type": "string",
+				"Length": "64"
+			},	
+			"h2_vap_availabililty1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"h2_vap_action1":{
+				"Type": "int",
+				"Length": "1"
+			},		
+			"h2_Status1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"h2_SSID1": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"h2_WirelessSecurity1": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"h2_Password1": {
+				"Type": "string",
+				"Length": "64"
+			},			
+			"h5_vap_availabililty": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"h5_vap_action":{
+				"Type": "int",
+				"Length": "1"
+			},		
+			"h5_Status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"h5_SSID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"h5_WirelessSecurity": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"h5_Password": {
+				"Type": "string",
+				"Length": "64"
+			},
+			"h5_vap_availabililty1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"h5_vap_action1":{
+				"Type": "int",
+				"Length": "1"
+			},		
+			"h5_Status1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"h5_SSID1": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"h5_WirelessSecurity1": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"h5_Password1": {
+				"Type": "string",
+				"Length": "64"
+			},					
+			"d_Server": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"d_Status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"d_StartAddress": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_EndAddress": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Gateway": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Subnet": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Primary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Secondary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Server1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"d_Status1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"d_StartAddress1": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_EndAddress1": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Gateway1": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Subnet1": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Primary_DNS1": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Secondary_DNS1": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"d_Hostname": {
+				"Type": "string",
+				"Length": "256"
+			},
+			"SAK":{
+				"Type": "string",
+				"Length": "64"
+			},
+			"URL":{
+				"Type": "string",
+				"Length": "256"
+			},
+			"SystemName": {
+				"Type": "string",
+				"Length": "17"
+			},
+			"Country": {
+				"Type": "string",
+				"Length": "17"
+			},
+			"Timezone": {
+				"Type": "int",
+				"Length": "1"
+			}	
+		},
+		"HS_CONFIGURATION": {
+			"Energy": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Demand": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DemandIntervalLength": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"NumberofSubIntervals": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ColdLoadPickupTimes": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PowerOutageRecognitionTime": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"TestModeDemandIntervalLength": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"NumberofTestModeSubintervals": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"TimetoremaininTestMode": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"DailySelfRead": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DailySelfReadTime": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Quantity1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Quantity2": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Quantity3": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Quantity4": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"IntervalLength": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"OutageLength": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"PulseWeight1": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"PulseWeight2": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"PulseWeight3": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"PulseWeight4": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"AllEvents": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"BillingDateCleard": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"BillingScheduleExpiration": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DemandResetOccured": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"HistoryLogCleared": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ConfigurationErrorDetected": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"LoadProfileError": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"LowBatteryDetected": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PrimaryPowerDown": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"CTMultiplier": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"VTMultiplier": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"RegisterMultiplier": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"EnableVoltageMonitor": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PhaseSelection": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"IntervalLengthVoltage": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"RMSVoltLoadThreshold": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"RMSVoltHighThreshold": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LowVoltageThreshold": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LowVoltageThresholdDeviation": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"HighVoltageThresholdDeviation": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LinkFailure": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"LinkMetric": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"InterrogationSendSucceeded": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"SendResponseFailed": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DeregistrationResult": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReceivedMessageFrom": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DataVineHyperSproutChange": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DataVineSyncFatherChange": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ZigbeeSETunnelingMessage": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ZigbeeSimpleMeteringMessage": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"TableSendRequestFailed": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"METER_REGISTERATION": {
+		"REGISTRATION_PARA": {
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			},
+			"MACID": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"AccessPointIP": {
+				"Type": "ipint",
+				"Length": "4"
+			},
+			"AccessPointPassword": {
+				"Type": "passtring",
+				"Length": "20"
+			},
+			"MeshCardBoard": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"MeshCardHardwareVersion": {
+				"Type": "vint",
+				"Length": "2"
+			},
+			"MeshCardFirmwareVersion": {
+				"Type": "vint",
+				"Length": "4"
+			},	
+			"MeterHardwareVersion": {
+				"Type": "string",
+				"Length": "5"
+			},
+			"MeterFirmwareVersion": {
+				"Type": "string",
+				"Length": "6"
+			},
+			"ManufacturerModel"	:{
+				"Type": "string",
+				"Length": "12"
+			},
+			"StandardType"	:{
+				"Type": "string",
+				"Length": "5"
+			},			
+			"self_heal":{
+				"Type": "int",
+				"Length": "1"
+			},
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			}
+		},
+		"DEVICE_DETAILS": {
+			"Latitude": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Longitude": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			},
+			"Circuit_ID": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"CT_Ratio": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"PT_Ratio": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"CT_CalibrationData": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"PT_CalibrationData": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"MeterID": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"MeterType": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"RatedVoltage": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"Phase": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"CertificationNumber": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"UtilityID": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"ApplicableStandard": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"MeterClass": {
+				"Type": "char",
+				"Length": "1"
+			},
+			"MAC_ID_WiFi": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"IP_address_WiFi": {
+				"Type": "char",
+				"Length": "4"
+			},
+			"ESN": {
+				"Type": "string",
+				"Length": "10"
+			},
+			"CountryCode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"RegionCode": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"SSID_Name": {
+				"Type": "string",
+				"Length": "6"
+			},
+			"AccessPointPassword": {
+				"Type": "string",
+				"Length": "6"
+			}
+		},
+		"METER_CONFIGURATION": {
+			"Energy1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Energy2": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Energy3": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Energy4": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Demand": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"LoadControlDisconnectThreshold": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReconnectMethod": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DemandIntervalLength": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"NumberofSubIntervals": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ColdLoadPickupTimes": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PowerOutageRecognitionTime": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"TestModeDemandIntervalLength ": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"NumberofTestModeSubintervals ": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"TimetoremaininTestMode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DailySelfRead": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DailySelfReadTime": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Quantity1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Quantity2": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Quantity3": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Quantity4": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"LoadProfileIntervalLength": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"OutageLength": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PulseWeight1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PulseWeight2": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PulseWeight3": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PulseWeight4": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"EnableVoltageMonitor": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PhaseSelection": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"VoltageMointorIntervalLength": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"RMSVoltLoadThreshold": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"RMSVoltHighThreshold": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LowVoltageThreshold": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LowVoltageThresholdDeviation": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"HighVoltageThresholdDeviation": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"AllEvents": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"BillingDateCleard": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"BillingScheduleExpiration": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DemandResetOccured": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"HistoryLogCleared": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ConfigurationErrorDetected": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"LoadProfileError": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"LowBatteryDetected": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"PrimaryPowerDown": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"OTMultiplier": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"VTMultiplier": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"RegisterMultiplier": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LockoutLoginattemptsOptical": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LockoutLogoutminutesOptical": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LockoutLoginattemptsLAN": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LockoutLogoutminutesLAN": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ConsecutiveLAN": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"LanLinkMetric": {
+				"Type": "int",
+				"Length": "2"
+			}
+		},
+		"GET_DEVICE_CONFIG": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			},
+			"radio_band": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"radio_mode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"chan_bw": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"channel": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"txpower": {
+				"Type": "int",
+				"Length": "1"
+			},			
+			"stream_selection": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"meshID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"SecurityType": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"PSK": {
+				"Type": "string",
+				"Length": "64"
+			},
+			"MeshMac": {
+				"Type": "string",
+				"Length": "18"
+			},
+			"MeshDeviceType": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"MeshSerialNumber": {
+				"Type": "string",
+				"Length": "26"
+			},
+			"meshID1": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"SecurityType1": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"PSK1": {
+				"Type": "string",
+				"Length": "64"
+			},
+			"MeshMac1": {
+				"Type": "string",
+				"Length": "18"
+			},
+			"MeshDeviceType1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"MeshSerialNumber1": {
+				"Type": "string",
+				"Length": "26"
+			},
+			"vap_availabililty": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"vap_action": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"SSID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"WirelessSecurity": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"Password": {
+				"Type": "string",
+				"Length": "64"
+			},		
+			
+			"dStatus": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"StartAddress": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"EndAddress": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Gateway": {
+				"Type": "string",
+				"Length": "16"
+			},			
+			"Subnet": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Primary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Secondary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"UtilityID": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"CircuitID": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"CertificationNumber": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"MeterESN": {
+				"Type": "char",
+				"Length": "10"
+			},
+			"SystemName": {
+				"Type": "string",
+				"Length": "17"
+			},
+			"Country": {
+				"Type": "string",
+				"Length": "17"
+			},
+			"Timezone": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"SET_DEVICE_CONFIG":{
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			}
+		}
+	},
+	"ACTION_FOR_DEVICE": {
+		"METER_CONNECT": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"METER_DISCONNECT": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+
+	"UPLOAD_CONFIG_SETTINGS": {
+		"UPLOAD_METER_CONFIG": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"UPLOAD_HS_CONFIG": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"CONFIGURATION": {
+		"METER_WIFI": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"HYPERSPROUT_WIFI": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"HS_DOWNLOAD": {
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"METER_DOWNLOAD": {
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"METER_BANDWIDTH": {
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"HS_BANDWIDTH": {
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"HH_BANDWIDTH": {
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"DELTALINK_BANDWIDTH": {
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"ENDPOINT_REGISTERATION": {
+		"ALL_DEVICE": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"ENDPOINT_DEREGISTERATION": {
+		"ALL_DEVICE": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"ENDPOINT_UPDATE": {
+		"ALL_DEVICE": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"COLLECTOR_FIRMWARE_UPGRADE": {
+		"START_FIRMWARE_UPDATE": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"COLLECTOR_DATA_UPLOAD": {
+		"COMBINED_TRANSACTIONAL_DATA": {
+			"NoOfMeter": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"StatusTransformer": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DeviceID": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"StatusMeter": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"COMBINED_TRANSACTIONAL_DATA_COMMONPARAMETERS": {
+			"ActiveReceivedCumulativeRate1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveReceivedCumulativeRate2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveReceivedCumulativeRate3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveReceivedCumulativeRate4": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveReceivedCumulativeRate_Total": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveDeliveredCumulativeRate1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveDeliveredCumulativeRate2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveDeliveredCumulativeRate3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveDeliveredCumulativeRate4": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveDeliveredCumulativeRate_Total": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Active_m_Total": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveReceivedCumulativeRate1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveReceivedCumulativeRate2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveReceivedCumulativeRate3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveReceivedCumulativeRate4": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveReceivedCumulativeTotal": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveDeliveredCumulativeRate1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveDeliveredCumulativeRate2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveDeliveredCumulativeRate3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveDeliveredCumulativeRate4": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveDeliveredCumulativeTotal": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Reactive_m_Total": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentReceivedCumulativeRate_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentReceivedCumulativeRate_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentReceivedCumulativeRate_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentReceivedCumulativeRate_4": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentReceivedCumulativeRate_Total": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentDeliveredCumulativeRate_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentDeliveredCumulativeRate_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentDeliveredCumulativeRate_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentDeliveredCumulativeRate_4": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentDeliveredCumulativeRate_Total": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Apparent_m_Total": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveMaxdemandMonthlyPeak1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveMaxdemandMonthlyPeak2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveMaxdemandMonthlyPeak3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveMaxdemandMonthlyPeak4": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveMaxdemandMonthlyPeak": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ActiveMaxdemandMonthlyPeak1Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak1Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak1Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ActiveMaxdemandMonthlyPeak1Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak1Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak1Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak2Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak2Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak2Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ActiveMaxdemandMonthlyPeak2Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak2Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak2Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak3Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak3Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak3Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ActiveMaxdemandMonthlyPeak3Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak3Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak3Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak4Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak4Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak4Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ActiveMaxdemandMonthlyPeak4Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak4Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeak4Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeakDate": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeakMonth": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeakYear": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ActiveMaxdemandMonthlyPeakHour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeakMin": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ActiveMaxdemandMonthlyPeakSec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveMaxdemandMonthlyPeak2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveMaxdemandMonthlyPeak3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveMaxdemandMonthlyPeak4": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveMaxdemandMonthlyPeak": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ReactiveMaxdemandMonthlyPeak1Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak1Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak1Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ReactiveMaxdemandMonthlyPeak1Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak1Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak1Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak2Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak2Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak2Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ReactiveMaxdemandMonthlyPeak2Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak2Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak2Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak3Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak3Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak3Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ReactiveMaxdemandMonthlyPeak3Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak3Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak3Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak4Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak4Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak4Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ReactiveMaxdemandMonthlyPeak4Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak4Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeak4Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeakDate": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeakMonth": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeakYear": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ReactiveMaxdemandMonthlyPeakHour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeakMin": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReactiveMaxdemandMonthlyPeakSec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentMaxdemandMonthlyPeak2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentMaxdemandMonthlyPeak3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentMaxdemandMonthlyPeak4": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentMaxdemandMonthlyPeak": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ApparentMaxdemandMonthlyPeak1Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak1Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak1Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ApparentMaxdemandMonthlyPeak1Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak1Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak1Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak2Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak2Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak2Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ApparentMaxdemandMonthlyPeak2Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak2Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak2Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak3Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak3Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak3Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ApparentMaxdemandMonthlyPeak3Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak3Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak3Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak4Date": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak4Month": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak4Year": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ApparentMaxdemandMonthlyPeak4Hour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak4Min": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeak4Sec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeakDate": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeakMonth": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeakYear": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"ApparentMaxdemandMonthlyPeakHour": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeakMin": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ApparentMaxdemandMonthlyPeakSec": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"ReadTimestamp": {
+				"Type": "timestamp",
+				"Length": "19"
+			}
+		},
+		"COMBINED_TRANSACTIONAL_DATA_1PHASE_Transformer": {
+			"Line1Voltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1Current": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1Period": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1PhaseAngle": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"THD": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ThirdHarm": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"FifthHarm": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"SeventhHarm": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"NinthHarm": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"EleventhHarm": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ThirteenthHarm": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"FifteenthHarm": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"AmbientTemperarture": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TopTemperature": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"BottomTemperature": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TransformerOilLevel": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"BatteryVoltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"BatteryStatus": {
+				"Type": "int",
+				"Length": "4"
+			}
+		},
+		"COMBINED_TRANSACTIONAL_DATA_3PHASE_Transformer": {
+			"Line1Voltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line2Voltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line3Voltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1Current": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line2Current": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line3Current": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"LineNCurrent": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1Period": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line2Period": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line3Period": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1PhaseAngle": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line2PhaseAngle": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line3PhaseAngle": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"THD_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ThirdHarm_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"FifthHarm_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"SeventhHarm_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"NinthHarm_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"EleventhHarm_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ThirteenthHarm_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"FifteenthHarm_1": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"THD_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ThirdHarm_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"FifthHarm_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"SeventhHarm_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"NinthHarm_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"EleventhHarm_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ThirteenthHarm_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"FifteenthHarm_2": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"THD_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ThirdHarm_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"FifthHarm_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"SeventhHarm_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"NinthHarm_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"EleventhHarm_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ThirteenthHarm_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"FifteenthHarm_3": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"AmbientTemperarture": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TopTemperature": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"BottomTemperature": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TransformerOilLevel": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"BatteryVoltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"BatteryStatus": {
+				"Type": "int",
+				"Length": "4"
+			}
+		},
+		"COMBINED_TRANSACTIONAL_DATA_1PHASE_Meter": {
+			"SelfHeal":{
+				"Type": "int",
+				"Length": "1"
+			},
+			"ParentHS":{
+				"Type": "int",
+				"Length": "2"
+			},
+			"Line1InstVoltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1InstCurrent": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1Frequency": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1PowerFactor": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveEnergyRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveEnergyRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedActiveMaxDemand_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveMaxDemandRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveMaxDemandRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveMaxDemandRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveMaxDemandRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedActiveCumMaxDemand_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveCumMaxDemandRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveCumMaxDemandRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveCumMaxDemandRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveCumMaxDemandRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedReactiveEnergy_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveEnergyRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveEnergyRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveEnergyRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveEnergyRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedReactiveMaxDemand_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveMaxDemandRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveMaxDemandRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveMaxDemandRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveMaxDemandRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedReactiveCumMaxDemand_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveCumMaxDemandRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveCumMaxDemandRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveCumMaxDemandRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveCumMaxDemandRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			}
+		},
+		"COMBINED_TRANSACTIONAL_DATA_3PHASE_Meter": {
+			"SelfHeal":{
+				"Type": "int",
+				"Length": "1"
+			},
+			"ParentHS":{
+				"Type": "int",
+				"Length": "2"
+			},
+			"Line1InstVoltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line2InstVoltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line3InstVoltage": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1InstCurrent": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line2InstCurrent": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line3InstCurrent": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line0InstCurrent": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1Frequency": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line2Frequency": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line3Frequency": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line1PowerFactor": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line2PowerFactor": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"Line3PowerFactor": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"SystemPowerFactor": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveEnergyRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveEnergyRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedActiveMaxDemand_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveMaxDemandRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveMaxDemandRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveMaxDemandRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveMaxDemandRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedActiveCumMaxDemand_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveCumMaxDemandRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveCumMaxDemandRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveCumMaxDemandRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedActiveCumMaxDemandRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedReactiveEnergy_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveEnergyRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveEnergyRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveEnergyRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveEnergyRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedReactiveMaxDemand_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveMaxDemandRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveMaxDemandRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveMaxDemandRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveMaxDemandRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"TotImportedReactiveCumMaxDemand_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveCumMaxDemandRate1_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveCumMaxDemandRate2_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveCumMaxDemandRate3_LBP": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"ImportedReactiveCumMaxDemandRate4_LBP": {
+				"Type": "float",
+				"Length": "4"
+			}
+		}
+	},
+	"EVENTS_ALARM_DATA": {
+		"ALL_ALARMS": {
+			"NoOfMeter": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"StatusTransformer": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DeviceID": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"StatusMeter": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"AlarmEventLength": {
+				"Type": "int",
+				"Length": "8"
+			},
+			"ReadTimestamp": {
+				"Type": "timestamp",
+				"Length": "19"
+			}
+		},
+		"ALL_ALARMS_TRANSFORMER": {
+			"OverVoltage": "",
+			"UnderVoltage": "",
+			"OverLoadLine1(MD Alarm)": "",
+			"OverLoadLine2(MD Alarm)": "",
+			"OverLoadLine3(MD Alarm)": "",
+			"OverFrequency": "",
+			"UnderFrequency": "",
+			"PowerFailure": "",
+			"CTOpen": "",
+			"PTOpen": "",
+			"OilLevelSensorFailure": "",
+			"TamperLid": "",
+			"TamperBox": "",
+			"LowOilLevel": "",
+			"HighOilTemperature": "",
+			"LowBatteryVoltage": "",
+			"BatteryFailure": "",
+			"BatteryRemoved": "",
+			"PrimaryPowerUp": "",
+			"PrimaryPowerDown": "",
+			"Non-TechnicalLoss": "",
+			"MeterConnected": "",
+			"MeterDisconnected": "",
+			"Wi-FiCommunicationLoss": "",
+			"3G/4G/LTECommunicationLoss": "",
+			"Communicationattemptsexceeded": "",
+			"UnAuthenticatedConnectionRequest": ""
+		},
+		"ALL_ALARMS_METER": {
+			"VoltageSagLine1": "",
+			"VoltageSagLine2": "",
+			"VoltageSagLine3": "",
+			"VoltageSwellLine1": "",
+			"VoltageSwellLine2": "",
+			"VoltageSwellLine3": "",
+			"VoltageUnbalance": "",
+			"VoltageCablelossLine1": "",
+			"VoltageCablelossLine2": "",
+			"VoltageCablelossLine3": "",
+			"VoltageTHDOverLimitLine1": "",
+			"VoltageTHDOverLimitLine2": "",
+			"VoltageTHDOverLimitLine3": "",
+			"CurrentTHDOverLimitLine1": "",
+			"CurrentTHDOverLimitLine2": "",
+			"CurrentTHDOverLimitLine3": "",
+			"PrimaryPowerUp": "",
+			"PrimaryPowerDown": "",
+			"LongOutagedetection": "",
+			"ShortOutagedetection": "",
+			"NonvolatileMemoryFailed": "",
+			"Clockerrordetected": "",
+			"LowBatteryVoltage": "",
+			"FlashMemoryFailed": "",
+			"Firmwareupgraded": "",
+			"Demandreset": "",
+			"TimeSynchronized": "",
+			"Historylogcleared": "",
+			"Coverremoval": "",
+			"Terminalcoverremoval": "",
+			"MeterDisconnected": "",
+			"MeterConnected": "",
+			"Demandresponseofimportactpwr(kW+)": "",
+			"Demandresponseofexportactpwr(kW-)": "",
+			"Demandresponseofimportreactpwr(kVar+)": "",
+			"Demandresponseofexportreactpwr(kVar-)": ""
+		}
+	},
+	"COLLECTOR_DEREGISTERATION": {
+		"HYPERSPROUT_DELETE": "01",
+		"HYPERHUB_DELETE": "02"
+	},
+	"MAC_ACL": {
+		"URL_MAC_ACL": {
+			"MAC_ACL_DV_URL": {
+				"Type": "string",
+				"Length": "150"
+			},
+			"MAC_ACL_HS_URL": {
+				"Type": "string",
+				"Length": "150"
+			},
+			"MAC_ACL_TYPE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"LOGS": {
+		"METER_VERBOSITY": {
+			"info": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"error": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"warning": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"debug": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"HH_VERBOSITY": {
+			"info": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"error": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"warning": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"debug": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"HS_VERBOSITY": {
+			"info": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"error": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"warning": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"debug": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"DL_VERBOSITY": {
+			"info": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"error": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"warning": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"debug": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"METER_FETCH": {
+			"url": {
+				"Type": "string",
+				"Length": "150"
+			},
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"HH_FETCH": {
+			"url": {
+				"Type": "string",
+				"Length": "150"
+			},
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"HS_FETCH": {
+			"url": {
+				"Type": "string",
+				"Length": "150"
+			},
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"DL_FETCH": {
+			"url": {
+				"Type": "string",
+				"Length": "150"
+			},
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"DELTALINK_REGISTER": {
+		"REGISTRATION_PARA": {
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			},
+			"MACID": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"AccessPointIP": {
+				"Type": "ipint",
+				"Length": "4"
+			},
+			"HardwareVersion": {
+				"Type": "vint",
+				"Length": "2"
+			},
+			"FirmwareVersion": {
+				"Type": "vint",
+				"Length": "4"
+			}
+		},
+		"DL_CONFIG": {
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"NODE_PING": {
+		"DELTALINK_PING": {
+			"SERIAL_NO": {
+				"Type": "string",
+				"Length": "25"
+			},
+			"NoofDL": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"BACKHAUL": {
+		"CARRIER_LIST": {
+			"carrier_status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"no_of_carriers": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"carrier": {
+				"Type": "string",
+				"Length": "11"
+			}
+		}
+	},
+	"METER_FRONTHAUL": {
+		"METER_SCAN": {
+			"radio_band": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"scanCount": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"mesh_id": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"mac_addr": {
+				"Type": "string",
+				"Length": "18"
+			},
+			"device": {
+				"Type": "string",
+				"Length": "32"
+			},
+			"encryption": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"rssi": {
+				"Type": "int",
+				"Length": "4"
+			},
+			"discovery_score": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"self_heal": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"channel": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"serialNumber": {
+				"Type": "string",
+				"Length": "26"
+			}
+		}
+	},
+	"DHCP_CONFIG":{
+		"DHCP_CONFIG":{
+			"Ip": {
+				"Type": "ipint",
+				"Length": "4"
+			}
+		}
+	},
+	"DELTALINK_STATUS": {
+		"DELTALINK_STATUS": {
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"MACID": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"ReadTimestamp": {
+				"Type": "timestamp",
+				"Length": "19"
+			}
+		}
+	},
+	"DATA_CONSUMPTION":{
+		"DATA_CONSUMPTION":{
+			"TimeStamp":{
+				"Type": "timestamp",
+				"Length": "19"
+			},
+			"DataRoute":{
+				"Type": "int",
+				"Length": "1"
+			},
+			"NoOfDevice":{
+				"Type": "int",
+				"Length": "1"
+			},
+			"DataType": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"DeviceType":{
+				"Type": "int",
+				"Length": "1"
+			},
+			"MACID": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"DataUpload":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"DataDownload":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"Total":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"NetworkLatency":{
+				"Type": "string",
+				"Length": "4"
+			}
+		},
+		"DELTALINK_CLIENTS":{
+			"MACID": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"DataUpload":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"DataDownload":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"Total":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"NetworkLatency":{
+				"Type": "string",
+				"Length": "4"
+			},
+			"NoOfClients": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"UserMacId": {
+				"Type": "mchar",
+				"Length": "6"
+			},
+			"HostName":{
+				"Type": "string",
+				"Length": "64"
+			},
+			"UserDataUpload":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"UserDataDownload":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"UserTotal":{
+				"Type": "string",
+				"Length": "8"
+			}
+		},
+		"DATA_CONSUMPTION_SYSTEM":{
+			"DeviceId": {
+				"Type": "int",
+				"Length": "2"
+			},
+			"DeviceType":{
+				"Type": "int",
+				"Length": "1"
+			},
+			"DataUpload":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"DataDownload":{
+				"Type": "string",
+				"Length": "8"
+			},
+			"Total":{
+				"Type": "string",
+				"Length": "8"
+			}
+		}
+	},
+	"SET_BACKHAUL_CONFIGURATION": {
+		"CELLULAR": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"Username": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"Password": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"Sim_Pin": {
+				"Type": "string",
+				"Length": "5"
+			},
+			"Network_Selection": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Carrier": {
+				"Type": "string",
+				"Length": "11"
+			}
+		},
+		"ETHERNET": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"Mode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"IP": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Gateway": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Subnet": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Primary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Secondary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			}
+		},
+		"ADVANCED": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"Primary_Bachaul": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Auto_Switchover": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"CARRIER_LIST": {
+			"carrier_status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"no_of_carriers": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"carrier": {
+				"Type": "string",
+				"Length": "11"
+			}
+		}
+	},
+	"SET_HS_FRONTHAUL_CONFIGURATION": {
+		"RADIO_2_4": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"radio_mode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"chan_bw": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"channel": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"txpower": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"guard_interval": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"stream_selection": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"RADIO_5_L": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"radio_mode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"chan_bw": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"channel": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"txpower": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"guard_interval": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"stream_selection": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"RADIO_5_H": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"radio_mode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"chan_bw": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"channel": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"txpower": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"guard_interval": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"stream_selection": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"MESH_2_4": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"mesh_vap_action": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"meshID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"SecurityType": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"PSK": {
+				"Type": "string",
+				"Length": "64"
+			}
+		},
+		"MESH_5_L": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"mesh_vap_action": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"meshID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"SecurityType": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"PSK": {
+				"Type": "string",
+				"Length": "64"
+			}
+		},
+		"HOTSPOT_2_4": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"vap_availabililty": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"vap_action": {
+				"Type": "int",
+				"Length": "1"
+			},	
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			},		
+			"SSID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"WirelessSecurity": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"Password": {
+				"Type": "string",
+				"Length": "64"
+			},			
+			"vap_availabililty1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"vap_action1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Status1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"SSID1": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"WirelessSecurity1": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"Password1": {
+				"Type": "string",
+				"Length": "64"
+			}
+			
+			
+		},
+		"HOTSPOT_5": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"vap_availabililty": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"vap_action": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"SSID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"WirelessSecurity": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"Password": {
+				"Type": "string",
+				"Length": "64"
+			},						
+			"vap_availabililty1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"vap_action1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Status1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"SSID1": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"WirelessSecurity1": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"Password1": {
+				"Type": "string",
+				"Length": "64"
+			}
+		},
+		"HS_DHCP": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"Server": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"StartAddress": {
+				"Type": "string",
+				"Length": "16"
+			},			
+			"EndAddress": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Gateway": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Subnet": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Primary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Secondary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			}
+		}
+	},
+	"SET_METER_FRONTHAUL_CONFIGURATION": {
+		"METER_RADIO": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"radio_band": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"radio_mode": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"chan_bw": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"txpower": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"channel": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"stream_selection": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"METER_MESH": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"meshID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"SecurityType": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"PSK": {
+				"Type": "string",
+				"Length": "64"
+			},
+			"MeshMac": {
+				"Type": "string",
+				"Length": "18"
+			},
+			"MeshDeviceType": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"MeshSerialNumber": {
+				"Type": "string",
+				"Length": "26"
+			},
+			"meshID1": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"SecurityType1": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"PSK1": {
+				"Type": "string",
+				"Length": "64"
+			},
+			"MeshMac1": {
+				"Type": "string",
+				"Length": "18"
+			},
+			"MeshDeviceType1": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"MeshSerialNumber1": {
+				"Type": "string",
+				"Length": "26"
+			}
+		},
+		"METER_HOTSPOT": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"vap_availabililty": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"vap_action": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"SSID": {
+				"Type": "string",
+				"Length": "33"
+			},
+			"WirelessSecurity": {
+				"Type": "string",
+				"Length": "9"
+			},
+			"Password": {
+				"Type": "string",
+				"Length": "64"
+			}
+			
+			
+		},
+		"METER_DHCP": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"Status": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"StartAddress": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"EndAddress": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Gateway": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Subnet": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Primary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			},
+			"Secondary_DNS": {
+				"Type": "string",
+				"Length": "16"
+			}
+		}
+	},
+	"SET_METER_CONFIGURATION": {
+		"Meter_Config": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"UtilityID": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"CircuitID": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"CertificationNumber": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"MeterESN": {
+				"Type": "string",
+				"Length": "10"
+			}
+		}
+	},
+	"SET_CLOUD_CONNECTIVITY": {
+		"HS_Connectivity": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"Hostname": {
+				"Type": "string",
+				"Length": "256"
+			},
+			"SAK": {
+				"Type": "string",
+				"Length": "64"
+			},
+			"URL": {
+				"Type": "string",
+				"Length": "256"
+			}
+		}
+	},
+	"SET_SYSTEM_SETTINGS": {
+		"Meter_System_Settings": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"SystemName": {
+				"Type": "string",
+				"Length": "17"
+			},
+			"Country": {
+				"Type": "string",
+				"Length": "17"
+			},
+			"Timezone": {
+				"Type": "int",
+				"Length": "1"
+			}
+		},
+		"HS_System_Settings": {
+			"config_time":{
+				"Type": "int",
+				"Length": "8"
+			},
+			"SystemName": {
+				"Type": "string",
+				"Length": "17"
+			},
+			"Country": {
+				"Type": "string",
+				"Length": "17"
+			},
+			"Timezone": {
+				"Type": "int",
+				"Length": "1"
+			}
+		}
+	},
+	"DATA_RATE": {
+		"METER_DATA_RATE": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"UploadRate": {
+				"Type": "string",
+				"Length": "8"
+			},
+			"DownloadRate": {
+				"Type": "string",
+				"Length": "8"
+			},
+			"Latency": {
+				"Type": "string",
+				"Length": "4"
+			}
+		},
+		"HS_DATA_RATE": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"UploadRate": {
+				"Type": "string",
+				"Length": "8"
+			},
+			"DownloadRate": {
+				"Type": "string",
+				"Length": "8"
+			},
+			"Latency": {
+				"Type": "string",
+				"Length": "4"
+			}
+		},
+		"HH_DATA_RATE": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"UploadRate": {
+				"Type": "string",
+				"Length": "8"
+			},
+			"DownloadRate": {
+				"Type": "string",
+				"Length": "8"
+			},
+			"Latency": {
+				"Type": "string",
+				"Length": "4"
+			}
+		},
+		"DL_DATA_RATE": {
+			"STATUSCODE": {
+				"Type": "int",
+				"Length": "1"
+			},
+			"UploadRate": {
+				"Type": "string",
+				"Length": "8"
+			},
+			"DownloadRate": {
+				"Type": "string",
+				"Length": "8"
+			},
+			"Latency": {
+				"Type": "string",
+				"Length": "4"
+			}
+		}
+	}
+
+}

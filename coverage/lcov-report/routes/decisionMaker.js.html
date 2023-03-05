@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for routes/decisionMaker.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">routes/</a> decisionMaker.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>85/140</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">52.73% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>58/110</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.47% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>26/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>85/140</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var express = require('express');
+var router = express.Router();
+var parser = require('../CEparser/parser');
+var dbInsert = require('../db/dbInsert');
+var postManagerial = require('./postManagerial');
+var protocolValidation = require('./protocolValidation.js');
+var configPara = require('../config/config.js');
+&nbsp;
+&nbsp;
+function decsionMaker(data, callback) {
+    // CRC check
+    protocolValidation.crcCheck(data, function (err) {
+        if (err) {
+            callback(err);
+            dbInsert.insert_db({ RawData: data, Type: "CRC", DBTimestamp: new Date() }, configPara.invalidPacket, function (err) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                    callback(err);</span>
+                }
+            });
+        } else {
+            // To check ProtocolSchema exists or Not
+            protocolValidation.revCheck(data, function (err, jsonObj) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                    callback(err);</span>
+                } else {
+                    parser.getActionName(jsonObj, data, function (err, res) {
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                            callback(err);</span>
+                        } else {
+                            switch (res) {
+                                case 'COLLECTOR_REGISTERATION':
+                                case 'METER_REGISTERATION':
+                                case 'ACTION_FOR_DEVICE':
+                                    parser.convertJson_MagerialData(jsonObj, data, function (err, result) {
+                                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                            callback(err);</span>
+                                        } else {
+                                            if (result.Attribute === 'REGISTRATION_PARA' &amp;&amp; result.Action === 'COLLECTOR_REGISTERATION') {
+                                                dbInsert.getID_db(configPara.Hypersprouts, { "HypersproutSerialNumber": result.Data[0].SERIAL_NO }, function (err, hsID) {
+                                                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                    else {
+                                                        <span class="missing-if-branch" title="if path not taken" >I</span>if (hsID.length !== 0) {
+<span class="cstat-no" title="statement not covered" >                                                            dbInsert.insert_db({ "Rev": result.Rev, "CellID": hsID[0].HypersproutID, "MeterID": result.MeterID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, DBTimestamp: parser.getUTC() }, configPara.eventLogs, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                                                                if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                                                                    callback(err);</span>
+                                                                }
+                                                            });
+                                                        }
+                                                        else {
+                                                            dbInsert.insert_db({ "Rev": result.Rev, "CellID": result.CellID, "MeterID": result.MeterID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, "SerialNumber": result.Data[0].SERIAL_NO, DBTimestamp: parser.getUTC() }, configPara.eventLogs, function (err) {
+                                                                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                                    callback(err);</span>
+                                                                }
+                                                            });
+                                                        }
+                                                    }
+                                                });
+                                            }
+                                            else <span class="missing-if-branch" title="else path not taken" >E</span>if (result.Attribute === 'REGISTRATION_PARA' &amp;&amp; result.Action === 'METER_REGISTERATION') {
+                                                dbInsert.getID_db(configPara.meters, { "MeterSerialNumber": result.Data[0].SERIAL_NO }, function (err, meterID) {
+                                                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                    else {
+                                                        <span class="missing-if-branch" title="if path not taken" >I</span>if (meterID.length !== 0) {
+<span class="cstat-no" title="statement not covered" >                                                            dbInsert.insert_db({ "Rev": result.Rev, "CellID": result.CellID, "MeterID": meterID[0].MeterID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, DBTimestamp: parser.getUTC() }, configPara.eventLogs, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                                                                if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                                                                    callback(err);</span>
+                                                                }
+                                                            });
+                                                        }
+                                                        else {
+                                                            dbInsert.insert_db({ "Rev": result.Rev, "CellID": result.CellID, "MeterID": result.MeterID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, "SerialNumber": result.Data[0].SERIAL_NO, DBTimestamp: parser.getUTC() }, configPara.eventLogs, function (err) {
+                                                                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                                    callback(err);</span>
+                                                                }
+                                                            });
+                                                        }
+                                                    }
+                                                });
+                                            }
+                                            else {
+<span class="cstat-no" title="statement not covered" >                                                dbInsert.insert_db({ "Rev": result.Rev, "CellID": result.CellID, "MeterID": result.MeterID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, DBTimestamp: parser.getUTC() }, configPara.eventLogs, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                                                    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                });
+                                            }
+&nbsp;
+                                            <span class="missing-if-branch" title="if path not taken" >I</span>if (res === 'ACTION_FOR_DEVICE') {
+<span class="cstat-no" title="statement not covered" >                                                postManagerial.postManagerialData(result, configPara.connectDisconnectPage, <span class="fstat-no" title="function not covered" >function (err, resWeb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                                                    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                    else {
+<span class="cstat-no" title="statement not covered" >                                                        callback(null, 'Webservice: ' + resWeb);</span>
+                                                    }
+                                                });
+                                            }
+                                            else {
+                                                postManagerial.postManagerialData(result, configPara.regPage, function (err, resWeb) {
+                                                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                    else {
+                                                        callback(null, 'Webservice: ' + resWeb);
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    });
+                                    break;
+                                case 'NODE_PING':
+                                case 'CONFIGURATION':
+                                case 'COLLECTOR_DEREGISTERATION':
+                                case 'ENDPOINT_REGISTERATION':
+                                case 'ENDPOINT_DEREGISTERATION':
+                                    parser.convertJson_MagerialData(jsonObj, data, function (err, result) {
+                                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                            callback(err);</span>
+                                        } else {
+                                            dbInsert.insert_db({ "Rev": result.Rev, "CellID": result.CellID, "MeterID": result.MeterID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, DBTimestamp: parser.getUTC() }, configPara.eventLogs, function (err) {
+                                                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                    callback(err);</span>
+                                                }
+                                            });
+&nbsp;
+                                            if (res === 'NODE_PING') {
+                                                postManagerial.postManagerialData(result, configPara.meterNodeping, function (err, resWeb) {
+                                                    <span class="missing-if-branch" title="else path not taken" >E</span>if (err) {
+                                                        callback(err);
+                                                    }
+                                                    else {
+<span class="cstat-no" title="statement not covered" >                                                        callback(null, 'Webservice: ' + resWeb);</span>
+                                                    }
+                                                });
+                                            }
+                                            else <span class="missing-if-branch" title="if path not taken" >I</span>if (res === 'COLLECTOR_DEREGISTERATION') {
+<span class="cstat-no" title="statement not covered" >                                                postManagerial.postManagerialData(result, configPara.hsDegister, <span class="fstat-no" title="function not covered" >function (err, resWeb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                                                    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                    else {
+<span class="cstat-no" title="statement not covered" >                                                        callback(null, 'Webservice: ' + resWeb);</span>
+                                                    }
+                                                });
+                                            }
+                                            else if (result.Attribute === 'HS_DOWNLOAD' || result.Attribute === 'METER_DOWNLOAD') {
+                                                postManagerial.postManagerialData(result, configPara.downloadConfig, function (err, resWeb) {
+                                                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                    else {
+                                                        callback(null, 'Webservice: ' + resWeb);
+                                                    }
+                                                });
+                                            }
+                                            else <span class="missing-if-branch" title="else path not taken" >E</span>if (result.Attribute === 'HYPERSPROUT_WIFI') {
+                                                postManagerial.postManagerialData(result, configPara.wifiHypersprout, function (err, resWeb) {
+                                                    <span class="missing-if-branch" title="else path not taken" >E</span>if (err) {
+                                                        callback(err);
+                                                    }
+                                                    else {
+<span class="cstat-no" title="statement not covered" >                                                        callback(null, 'Webservice: ' + resWeb);</span>
+                                                    }
+                                                });
+                                            }
+                                            else <span class="cstat-no" title="statement not covered" >if (result.Attribute === 'METER_WIFI') {</span>
+<span class="cstat-no" title="statement not covered" >                                                postManagerial.postManagerialData(result, configPara.wifiMeter, <span class="fstat-no" title="function not covered" >function (err, resWeb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                                                    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                    else {
+<span class="cstat-no" title="statement not covered" >                                                        callback(null, 'Webservice: ' + resWeb);</span>
+                                                    }
+                                                });
+                                            }
+                                            else <span class="cstat-no" title="statement not covered" >if (result.Attribute === 'ALL_DEVICE') {</span>
+<span class="cstat-no" title="statement not covered" >                                                postManagerial.postManagerialData(result, configPara.endPointRegDreg, <span class="fstat-no" title="function not covered" >function (err, resWeb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                                                    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                    else {
+<span class="cstat-no" title="statement not covered" >                                                        callback(null, 'Webservice: ' + resWeb);</span>
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    });
+                                    break;
+&nbsp;
+                                case 'EVENTS_ALARM_DATA':
+                                    parser.convertJson_EventsAlarms(jsonObj, data, function (err, result) {
+                                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                            callback(err);</span>
+                                        } else {
+                                            // Insert Data to Database for Transformer / Meter Events/Alarms 
+                                            dbInsert.insert_db({ result, DBTimestamp: parser.getUTC() }, configPara.alarmEvent, function (err) {
+                                                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                    callback(err);</span>
+                                                } else {
+                                                    dbInsert.insert_db({ "Rev": result.Rev, "CellID": result.CellID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, "NoOfMeter": result.Transformer.NoOfMeter, DBTimestamp: parser.getUTC() }, configPara.eventLogs, function (err, val) {
+                                                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                            callback(err);</span>
+                                                        } else {
+                                                            callback(null, "DB Events/Alarms " + val);
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        }
+                                    });
+                                    break;
+                                case 'COLLECTOR_DATA_UPLOAD':
+&nbsp;
+                                    parser.convertJson_TransactionData(jsonObj, data, function (err, result) {
+                                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                            callback(err);</span>
+                                        } else {
+                                            dbInsert.insert_db({ "Rev": result.Rev, "CellID": result.CellID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, "NoOfMeter": result.Transformer.NoOfMeter, DBTimestamp: parser.getUTC() }, configPara.eventLogs, function (err, val) {
+                                                <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                    callback(err);</span>
+                                                }
+                                            });
+                                            // Insert Data to Database for Tranactionl Transformer part 
+                                            if (result.Attribute === 'COMBINED_TRANSACTIONAL_DATA') {
+                                                postManagerial.postManagerialData({ "TransactionDataResponse": result, "TimeStampResponse": parser.getUTC() }, configPara.schdulerPage, function (err, resWeb) {
+                                                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    }
+                                                    else {
+                                                        <span class="missing-if-branch" title="if path not taken" >I</span>if (resWeb === 'Success') {
+<span class="cstat-no" title="statement not covered" >                                                            dbInsert.insert_db({ result, DBTimestamp: parser.getUTC() }, configPara.transactionData, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                                                                if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                                                                    callback(err);</span>
+                                                                } else {
+<span class="cstat-no" title="statement not covered" >                                                                    callback(null, "Transaction Data Inserted to DB");</span>
+                                                                }
+                                                            });
+                                                        }
+                                                        else <span class="missing-if-branch" title="else path not taken" >E</span>if (resWeb === 'Failure') {
+                                                            callback(null, 'Bulk Data');
+                                                        }
+                                                    }
+                                                });
+                                            }
+                                            else <span class="missing-if-branch" title="else path not taken" >E</span>if (result.Attribute === 'ON_DEMAND_METER_DATA') {
+                                                // Insert Data to Database for Tranactionl meter part
+                                                dbInsert.insert_db({ result, DBTimestamp: parser.getUTC() }, configPara.onDemandMeterData, function (err) {
+                                                    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                                        callback(err);</span>
+                                                    } else {
+                                                        postManagerial.postManagerialData({ "MeterID": result.meters[0].DeviceID }, configPara.onDemandWebServicePage, function (err, resWeb) {
+                                                            callback(null, 'OnDemand_Webservice: ' + resWeb);
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    });
+                                    break;
+                                case 'METER_DEREGISTERATION':
+                                    parser.convertJson_Deregister(jsonObj, data, function (err, result) {
+                                        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >                                            callback(err);</span>
+                                        } else {
+                                            postManagerial.postManagerialData(result, configPara.meterDegister, function (err, resWeb) {
+                                                callback(null, 'MeterDeReg Webservice: ' + JSON.stringify(result) + resWeb);
+                                            });
+                                        }
+                                    });
+                                    break;
+<span class="branch-11 cbranch-no" title="branch not covered" >                                default:</span>
+<span class="cstat-no" title="statement not covered" >                                    callback(null, 'Unknown Action defined in protocol Json file');</span>
+<span class="cstat-no" title="statement not covered" >                                    break;</span>
+&nbsp;
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    });
+};
+&nbsp;
+module.exports = {
+    decsionMaker: decsionMaker,
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 06 2019 09:22:27 GMT+0000 (Coordinated Universal Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

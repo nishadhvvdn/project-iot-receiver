@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for config/config.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">config/</a> config.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>34/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>34/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">process.env.IOTConnectionString = "HostName=delta-iot-hub-qa.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=ILvvjV/W9MwN/5ZQ+Bq9ecArTTN5TwVYEF6hBtA6k/8=";
+// QA connection string = "HostName=delta-iot-hub-qa.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=ILvvjV/W9MwN/5ZQ+Bq9ecArTTN5TwVYEF6hBtA6k/8="
+// dev connection string = "HostName=delta-iot.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=9o4/BXUK2JX2Nq31NLqH4NFGv8LQUJMWp0YQvR2IXIQ="
+&nbsp;
+process.env.MongoUsername = "deltaLtts";
+process.env.Password = "Delta123";
+process.env.mongoIP = "23.100.45.116";
+// QA mongo IP = "23.100.45.116"
+// dev mongo IP = "40.117.175.1"
+&nbsp;
+process.env.Hostname = "datavinewebserviceqa.azurewebsites.net";
+// QA web services hostname = "datavinewebserviceqa.azurewebsites.net"
+// dev web services hostname = "datavinewebservicedev.azurewebsites.net"
+&nbsp;
+process.env.port = "443";
+process.env.filePath = "./protocolJson/";
+process.env.protocol = "https";
+&nbsp;
+// IoT Connection String
+var IOTConnectionString = process.env.IOTConnectionString;
+&nbsp;
+// Database Details
+// var DBconnectionString = "mongodb://" + process.env.MongoUsername + ":" + process.env.Password + "@" + process.env.mongoIP +"/DELTA";
+var DBconnectionString = "mongodb://104.42.32.89:27017/DELTA?authSource=admin&amp;connectTimeoutMS=300000";
+// QA mongodb connection string = "mongodb://deltaLtts:Delta123@40.117.175.1:27017/DELTA?authSource=admin&amp;connectTimeoutMS=300000";
+// dev mongodb connection string = "mongodb://deltaLtts:Delta123@23.100.45.116:27017/DELTA?authSource=admin&amp;connectTimeoutMS=300000";
+&nbsp;
+// DB Table Name
+var rawData = "DELTA_RawData";
+var invalidPacket = "DELTA_InvalidPacket";
+var transactionData = "DELTA_Transaction_Data";
+var onDemandMeterData = "DELTA_Meters_OnDemand_Transactions";
+var alarmEvent = "DELTA_AlarmsAndEvents";
+var eventLogs = "DELTA_SystemEvents";
+var Hypersprouts = "DELTA_Hypersprouts";
+var meters = "DELTA_Meters";
+&nbsp;
+// Webservice details
+var Hostname = process.env.Hostname;
+var port = process.env.port;
+var regPage = "/EndpointRegistration";
+var connectDisconnectPage = "/MeterConnectDisconnectResponse";
+var schdulerPage = "/SchedulerLogUpdate";
+var onDemandWebServicePage = "/MeterKwHResponse";
+var invalidPacketweb = "/InvalidPacketIntimation";
+var meterDegister = "/RemovingMeterFromTransformerResponse";
+var meterNodeping = "/SMMeterNodePingStatus";
+var wifiHypersprout = "/EditTransformerHypersproutWifiChangeResponse";
+var wifiMeter = "/EditMeterWifiChangeResponse";
+var hsDegister = '/RemovingTransformerFromCircuitResponse';
+var downloadConfig = '/DownloadConfigurationResponse';
+var endPointRegDreg = '/EndpointResponse';
+&nbsp;
+//Protocol Struture (JSON file)
+var filePath = process.env.filePath;
+&nbsp;
+module.exports = {
+	IOTConnectionString: IOTConnectionString,
+	DBconnectionString: DBconnectionString,
+	rawData: rawData,
+	invalidPacket: invalidPacket,
+	transactionData: transactionData,
+	onDemandMeterData: onDemandMeterData,
+	alarmEvent: alarmEvent,
+	eventLogs: eventLogs,
+	Hypersprouts: Hypersprouts,
+	meters: meters,
+	Hostname: Hostname,
+	port: port,
+	regPage: regPage,
+	connectDisconnectPage: connectDisconnectPage,
+	schdulerPage: schdulerPage,
+	onDemandWebServicePage: onDemandWebServicePage,
+	invalidPacketweb: invalidPacketweb,
+	meterDegister: meterDegister,
+	meterNodeping: meterNodeping,
+	wifiHypersprout: wifiHypersprout,
+	wifiMeter: wifiMeter,
+	hsDegister: hsDegister,
+	downloadConfig: downloadConfig,
+	endPointRegDreg: endPointRegDreg,
+	filePath: filePath
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 06 2019 09:22:27 GMT+0000 (Coordinated Universal Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

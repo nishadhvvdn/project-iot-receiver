@@ -1,0 +1,41 @@
+{
+  "name": "iotreceiver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GruntFile.js",
+  "dependencies": {
+    "azure-event-hubs": "^0.0.4",
+    "azure-storage": "^2.10.3",
+    "body-parser": "^1.15.2",
+    "crc-16": "0.1.3",
+    "dateformat": "^1.0.12",
+    "express": "^4.14.0",
+    "express-generator": "^4.13.4",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-forever": "^0.4.7",
+    "https": "^1.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "mongodb": "^3.5.9",
+    "morgan": "^1.7.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "node-bitarray": "0.1.0",
+    "pm2": "^2.0.19",
+    "sequelize": "^6.3.5",
+    "winston": "^3.3.0",
+    "winston-azure-blob-transport": "^0.3.3",
+    "winston-azure-storage-transport": "^3.1.1",
+    "winston3-azureblob-transport": "^0.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "supertest": "^2.0.0"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "author": ""
+}

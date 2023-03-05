@@ -1,0 +1,397 @@
+
+
+  decision Maker
+ 
+rawData 00001f00010000000100000085010007323031372d30362d30352031313a35343a35374000000000000000084d
+    ✓ Alarm/Events (97ms)
+rawData 0000bf01330000000e0000000302010a090001144e6343b81e853d00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001273
+
+
+sending data to webserver...
+
+
+err:  SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/ltts/IoTReceiver/routes/postManagerial.js:9:1431)
+    at IncomingMessage.emit (events.js:202:15)
+    at endReadableNT (_stream_readable.js:1129:12)
+    at processTicksAndRejections (internal/process/next_tick.js:76:17)
+    1) OnDemand
+rawData 0000b805bb0000000100000003030407c3f56343f6e86c4300406c4300000000000000000000000000000000713da0417b14a041f628a041295c8d41000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cdec914348e1a542333333431f859d42713d81429a99a942cd8c1d43b81e764248e1be417b1496411f8589410000000007000000030000000a0000000c00000008000000b6000000d400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b0000000d00000008000000c9000000eb00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000d0070000000000d0070000000000f0070f321c0000d0070000000000d00700000000000000000000000000000000000000000000000000d0070000000000d0070000000000d0070000000000d0070000000000d00700000000000000000000000000000000000000000000000000d0070000000000d0070000000000f0070f321c0000d0070000000000d007000000323031372d35002d31392039003a31343a33310600080100020a00077fea64431d5a843f00000000000000000000000000000000000000001baf47421baf47421baf474200000000000000000000000000000000be9feb42000000005eba95405eba95408d976640df4f95400000000083c08a3e000000000000000083c08a3e00000000db79184304569241a69b4142df8fab4200000000931814403f35be3f1b2fcd3f931814400000000039b4083f000000000000000039b4083f000000007d5601004bbd010034cc010000000000fddf0400b09d0200b09d0200b09d0200b09d0200b09d0200000000009c5302009c5302009c5302009c5302009c5302009403000094030000940300009403000094030000000000000eaf0200aae70200aff002009c530200d5660500b29d0200b29d0200b29d0200b29d0200b29d020023c90200aa000000aa000000aa000000aa000000aa0000001c02d0071422231c02d0071422231c02d0071422231c02d0071422231c02d007142223aa000000aa000000aa000000aa000000aa0000001c02d0071422231c02d0071422231c02d0071422231c02d0071422231c02d007142223aa000000aa000000aa000000aa000000aa0000001c02d0071422231c02d0071422231c02d0071422231c02d0071422231c02d007142223323030302d30322d32382032303a33343a333508000779c96243000000000000000000000000000000000000000096430b3d58b9474258b9474258b9474200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000aa000000aa000000aa000000aa000000aa0000001205e1070f26241205e1070f26241205e1070f26241205e1070f26241205e1070f2624aa000000aa000000aa000000aa000000aa0000001205e1070f26241205e1070f26241205e1070f26241205e1070f26241205e1070f2624aa000000aa000000aa000000aa000000aa0000001205e1070f26241205e1070f26241205e1070f26241205e1070f26241205e1070f2624323031372d30352d31382031353a33383a333636db
+
+
+sending data to webserver...
+
+
+    ✓ COMBINED_TRANSACTIONAL_DATA (4787ms)
+rawData 00003d000000000001000000010130303030303030303030303030303043454c4c335f54455354689e19d12b1c48532d30303030303030303030303030303043454c4c335f544553548f32
+
+
+sending data to webserver...
+
+
+    2) Managerial Data -- HS Registeration
+rawData 000021000000000001000000020130303030303030303030303030303030303635343030323439689e19155319d4f1
+
+
+sending data to webserver...
+
+
+    3) Managerial Data -- Meter Registeration
+    ✓ Invalid CRC
+rawData 0000060001000000000100010801010001013a84
+
+
+sending data to webserver...
+
+
+    ✓ Meter Deregistration (553ms)
+rawData 000002004000000001000100890167a8
+
+
+sending data to webserver...
+
+
+err:  SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/ltts/IoTReceiver/routes/postManagerial.js:9:1431)
+    at IncomingMessage.emit (events.js:202:15)
+    at endReadableNT (_stream_readable.js:1129:12)
+    at processTicksAndRejections (internal/process/next_tick.js:76:17)
+    4) Node Ping positive response
+    5) Node Ping positive response
+rawData 0000020039000000010001008981fd46
+
+
+sending data to webserver...
+
+
+err:  SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/ltts/IoTReceiver/routes/postManagerial.js:9:1431)
+    at IncomingMessage.emit (events.js:202:15)
+    at endReadableNT (_stream_readable.js:1129:12)
+    at processTicksAndRejections (internal/process/next_tick.js:76:17)
+    6) Node Ping negative (NACK) response
+    7) Node Ping negative (NACK) response
+rawData 0000030000000000010000008a0301d8e9
+
+
+sending data to webserver...
+
+
+    8) HS CONFIGURATION Response
+rawData 00000300d6000000010000008a02012c2b
+
+
+sending data to webserver...
+
+
+err:  SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/ltts/IoTReceiver/routes/postManagerial.js:9:1431)
+    at IncomingMessage.emit (events.js:202:15)
+    at endReadableNT (_stream_readable.js:1129:12)
+    at processTicksAndRejections (internal/process/next_tick.js:76:17)
+    9) HYPERSPROUT WIFI Response
+    10) HYPERSPROUT WIFI Response
+
+  Parser
+ 
+    ✓ Get Date
+    11) Managerial Data
+    12) Meter Deregistration
+    13) Transactional Data Status=7 Three phase Transformer connected
+    14) Alarms/Events Data for three phase
+    15) Alarms/Events Data for Single phase
+    16) Alarms/Events Data for Single phase CommunicationFailure
+    17) Alarms/Events Data for Single phase Disconnected
+    18) Alarms/Events Data for Three phase CommunicationFailure
+    19) Alarms/Events Data for Three phase Disconnected
+    20) Invalid Transformer Alarms/Events status
+    21) Invalid Meter Alarms/Events status
+    22) Alarms/Events Data for three phase
+    23) No Alarms/Events Data for transformer
+    24) Transactional Data OnDemand
+    25) Transactional Data Status = 1 One phase Transformer Connected
+    26) Transactional Data Status = 2 One phase Transformer CommunicationFailure
+    27) Transactional Data Status = 3 One phase Transformer Disconnected
+    28) Transactional Data Status = 8 Three phase Transformer CommunicationFailure
+    29) Transactional Data Status = 9 Three phase Transformer Disconnected
+    30) Invalid Transformer status
+    31) Meter status = 9 Three phase Disconnected
+    32) Meter status = 8 Three phase Communication failure
+    33) Meter status = 3 Single phase Disconnected
+    34) Meter status = 2 Single phase Communication failure
+    35) Not relevant for Meter
+    36) Invalid Meter status
+
+
+  5 passing (17s)
+  36 failing
+
+  1) decision Maker
+  OnDemand:
+
+      AssertionError: expected 'OnDemand_Webservice: null' to equal 'OnDemand_Webservice: Success'
+      + expected - actual
+
+      -OnDemand_Webservice: null
+      +OnDemand_Webservice: Success
+      
+      at Timeout._onTimeout (test/decisionMaker.js:28:21)
+
+  2) decision Maker
+  Managerial Data -- HS Registeration:
+
+      AssertionError: expected 'Webservice: Failure' to equal 'Webservice: Success'
+      + expected - actual
+
+      -Webservice: Failure
+      +Webservice: Success
+      
+      at Timeout._onTimeout (test/decisionMaker.js:58:22)
+
+  3) decision Maker
+  Managerial Data -- Meter Registeration:
+
+      AssertionError: expected 'Webservice: Failure' to equal 'Webservice: Success'
+      + expected - actual
+
+      -Webservice: Failure
+      +Webservice: Success
+      
+      at Timeout._onTimeout (test/decisionMaker.js:72:22)
+
+  4) decision Maker
+  Node Ping positive response:
+     AssertionError: expected undefined to equal 'Webservice: Success'
+      at Timeout._onTimeout (test/decisionMaker.js:113:22)
+
+  5) decision Maker
+  Node Ping positive response:
+     AssertionError: expected undefined to equal 'Webservice: Success'
+      at Timeout._onTimeout (test/decisionMaker.js:113:22)
+
+  6) decision Maker
+  Node Ping negative (NACK) response:
+     AssertionError: expected undefined to equal 'Webservice: Success'
+      at Timeout._onTimeout (test/decisionMaker.js:127:22)
+
+  7) decision Maker
+  Node Ping negative (NACK) response:
+     AssertionError: expected undefined to equal 'Webservice: Success'
+      at Timeout._onTimeout (test/decisionMaker.js:127:22)
+
+  8) decision Maker
+  HS CONFIGURATION Response:
+
+      AssertionError: expected 'Webservice: Failure' to equal 'Webservice: Success'
+      + expected - actual
+
+      -Webservice: Failure
+      +Webservice: Success
+      
+      at Timeout._onTimeout (test/decisionMaker.js:141:22)
+
+  9) decision Maker
+  HYPERSPROUT WIFI Response:
+     AssertionError: expected undefined to equal 'Webservice: Success'
+      at Timeout._onTimeout (test/decisionMaker.js:169:21)
+
+  10) decision Maker
+  HYPERSPROUT WIFI Response:
+     AssertionError: expected undefined to equal 'Webservice: Success'
+      at Timeout._onTimeout (test/decisionMaker.js:169:21)
+
+  11) Parser
+  Managerial Data:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:17:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  12) Parser
+  Meter Deregistration:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:35:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  13) Parser
+  Transactional Data Status=7 Three phase Transformer connected:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:53:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  14) Parser
+  Alarms/Events Data for three phase:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:72:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  15) Parser
+  Alarms/Events Data for Single phase:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:90:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  16) Parser
+  Alarms/Events Data for Single phase CommunicationFailure:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:108:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  17) Parser
+  Alarms/Events Data for Single phase Disconnected:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:126:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  18) Parser
+  Alarms/Events Data for Three phase CommunicationFailure:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:144:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  19) Parser
+  Alarms/Events Data for Three phase Disconnected:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:162:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  20) Parser
+  Invalid Transformer Alarms/Events status:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:180:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  21) Parser
+  Invalid Meter Alarms/Events status:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:199:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  22) Parser
+  Alarms/Events Data for three phase:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:218:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  23) Parser
+  No Alarms/Events Data for transformer:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:236:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  24) Parser
+  Transactional Data OnDemand:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:254:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  25) Parser
+  Transactional Data Status = 1 One phase Transformer Connected:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:273:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  26) Parser
+  Transactional Data Status = 2 One phase Transformer CommunicationFailure:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:292:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  27) Parser
+  Transactional Data Status = 3 One phase Transformer Disconnected:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:311:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  28) Parser
+  Transactional Data Status = 8 Three phase Transformer CommunicationFailure:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:330:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  29) Parser
+  Transactional Data Status = 9 Three phase Transformer Disconnected:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:349:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  30) Parser
+  Invalid Transformer status:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:367:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  31) Parser
+  Meter status = 9 Three phase Disconnected:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:386:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  32) Parser
+  Meter status = 8 Three phase Communication failure:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:404:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  33) Parser
+  Meter status = 3 Single phase Disconnected:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:422:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  34) Parser
+  Meter status = 2 Single phase Communication failure:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:440:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  35) Parser
+  Not relevant for Meter:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:458:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+  36) Parser
+  Invalid Meter status:
+     Uncaught SyntaxError: Unexpected token u in JSON at position 0
+      at JSON.parse (<anonymous>)
+      at ReadFileContext.callback (test/parser.js:476:28)
+      at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:243:13)
+
+
+
+
+=============================== Coverage summary ===============================
+Statements   : 74.94% ( 604/806 )
+Branches     : 51.64% ( 189/366 )
+Functions    : 71.62% ( 53/74 )
+Lines        : 74.94% ( 604/806 )
+================================================================================
