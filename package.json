@@ -4,22 +4,29 @@
   "description": "",
   "main": "GruntFile.js",
   "dependencies": {
+    "@azure/event-hubs": "^5.8.0",
     "azure-event-hubs": "^0.0.4",
     "azure-storage": "^2.10.3",
     "body-parser": "^1.15.2",
+    "bull": "^3.18.0",
     "crc-16": "0.1.3",
+    "csv-stringify": "^6.3.0",
     "dateformat": "^1.0.12",
+    "dotenv": "^16.0.3",
     "express": "^4.14.0",
     "express-generator": "^4.13.4",
+    "fast-csv": "^4.3.6",
     "grunt": "^1.0.1",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-forever": "^0.4.7",
     "https": "^1.0.0",
     "istanbul": "^0.4.5",
+    "json2csv": "^5.0.7",
     "mocha": "^3.2.0",
     "mongodb": "^3.5.9",
     "morgan": "^1.7.0",
+    "mqtt": "^4.3.7",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "node-bitarray": "0.1.0",
@@ -34,8 +41,6 @@
     "chai": "^3.5.0",
     "supertest": "^2.0.0"
   },
-  "scripts": {
-    "test": ""
-  },
+  "scripts": {},
   "author": ""
 }

@@ -3,13 +3,13 @@ var express = require("express");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 
-/* ************* PORT INITIALIZATION **************** */ 
+/* ************* PORT INITIALIZATION **************** */
 var argport = null;
 try {
-	argport = process.argv.slice(2);
-	argport = argport[0];
+    argport = process.argv.slice(2);
+    argport = argport[0];
 } catch(err) {
-	console.log(err);
+    console.log(err);
 }
 
 var port = process.env.PORT || 9242;
@@ -30,7 +30,11 @@ app.use(function (req, res, next) {
 
 // IoT Receiver
 var Receiver = require('./routes/Receiver.js');
+var OtherEventQueue = require('./routes/processEvent');
+
 app.use('/Receiver', Receiver);
+app.use('/OtherEventQueue',OtherEventQueue);
+
 
 app.listen(port, function () {
     console.log('DataVine Collection Engine Receiver are up and running on port %d', this.address().port);
@@ -38,4 +42,5 @@ app.listen(port, function () {
 
 process.on('uncaughtException', function (err) {
     console.log("Error: " + err);
+    console.error(err.stack);
 });

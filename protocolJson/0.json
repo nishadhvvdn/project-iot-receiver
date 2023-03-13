@@ -86,7 +86,8 @@
 		"SET_SYSTEM_SETTINGS": "35",		
 		"UPLOAD_CONFIG_SETTINGS": "36",
 		"SELFHEALEDMETER_DEREGISTERATION":"37",
-		"DATA_RATE": "38"
+		"DATA_RATE": "38",
+		"COIL_UPDATE": "39"
 	},
 	"ActionAttribute": {
 		"COLLECTOR_REGISTERATION": {
@@ -318,6 +319,10 @@
 			"HS_DATA_RATE": "02",
 			"HH_DATA_RATE": "03",
 			"DL_DATA_RATE": "04"
+		},
+		"COIL_UPDATE": {
+			"COIL_DATA" : "01",
+			"COIL_ACK" : "02"
 		}
 	},
 	"COLLECTOR_REGISTERATION": {
@@ -4055,6 +4060,36 @@
 			"Latency": {
 				"Type": "string",
 				"Length": "4"
+			}
+		}
+	},
+	"COIL_UPDATE":{
+		"COIL_DATA": {
+			"MULTIPLIER": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"COIL_ID": {
+				"Type": "string",
+				"Length": "24"
+			}
+		},
+		"COIL_ACK": {
+			"MULTIPLIER": {
+				"Type": "float",
+				"Length": "4"
+			},
+			"COIL_ID": {
+				"Type": "string",
+				"Length": "24"
+			},
+			"DEVICE_ID": {
+				"Type": "string",
+				"Length": "28"
+			},
+			"STATUS": {
+				"Type": "string",
+				"Length": "7"
 			}
 		}
 	}

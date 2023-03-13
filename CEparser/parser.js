@@ -70,14 +70,15 @@ function convertHexa(hexx, dataType, len) {
                 str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
         }
         else if (dataType === 'float') {
-            var arrFloat = [];
-            var o = 0;
-            for (var g = 0; g < hex.length; g += 2) {
-                arrFloat[o] = '0x' + hex.substr(g, 2);
-                o++;
-            }
-            str = (new DataView((new Uint8Array(arrFloat)).buffer)).getFloat32(0, true);
-            str = Number(str.toFixed(6));
+            // var arrFloat = [];
+            // var o = 0;
+            // for (var g = 0; g < hex.length; g += 2) {
+            //     arrFloat[o] = '0x' + hex.substr(g, 2);
+            //     o++;
+            // }
+            // str = (new DataView((new Uint8Array(arrFloat)).buffer)).getFloat32(0, true);
+            // str = Number(str.toFixed(6));
+            str = (Buffer(hex,'hex').readFloatBE(0)).toFixed(6);
         }
         else if (dataType === 'timestamp') {
             for (var k = 0; k < hex.length; k += 2)
@@ -1944,6 +1945,50 @@ function convertJson_DataConsumption(obj, data, callback) {
     }
 }
 
+function convertJson_CoilUploadData(obj, data, callback) {
+    var cntOfConnectedMeter = 0;
+    var startIndex = 0;
+    startAttrIndex = 0;
+    endAttrIndex = 0;
+    objTransformerData = {};
+    objMeter = {};
+    rawData = data;
+    objJson = {};
+    var AttributeNew = '';
+    let arrData = [];
+    // console.log(typeof obj , data)
+    for (var key in obj.FrameFormat) {
+        if (key === 'Data') {
+            var objData = {};
+            endIndex = Count * 2;
+            ActualData = data.substring(startIndex, data.length-endIndex );
+            var startAttrIndex = 0;
+            for (var key1 in obj[Action][Attribute]) {
+                var endAttrIndex = (2 * Number(obj[Action][Attribute][key1].Length)) + Number(startAttrIndex);
+                DataType = obj[Action][Attribute][key1].Type;
+                var Datatodecode = ActualData.substring(startAttrIndex, endAttrIndex);
+                if (key1 == 'config_time')
+                    Datatodecode = Datatodecode.match(/[a-fA-F0-9]{2}/g).reverse().join('')
+                objData[key1] = convertHexa(Datatodecode, DataType, Number(obj[Action][Attribute][key1].Length));
+                startAttrIndex = endAttrIndex;
+            }
+            arrData.push(objData);
+            objJson['Data'] = arrData;
+
+            /*************************************** Meter Data Ends ***************************************************************/
+            startIndex = endIndex + startIndex;
+        }
+        else {
+            // console.log("else paert")
+            var endIndex = (2 * Number(obj.FrameFormat[key].Length)) + Number(startIndex);
+            getCommValues(startIndex, endIndex, key, obj, data);
+            startIndex = endIndex;
+        }
+    }
+    // console.log(" Transformer Obj :: ",objJson)
+    return callback(null, objJson);
+}
+
 module.exports = {
     convertJson_Deregister: convertJson_Deregister,
     convertJson_MagerialData: convertJson_MagerialData,
@@ -1962,7 +2007,7 @@ module.exports = {
     convertJson_DeltalinkStatus: convertJson_DeltalinkStatus,
     convertJson_configUpload: convertJson_configUpload,
     convertJson_DataConsumption: convertJson_DataConsumption,
-    convertJsonMeterFirmwareManagement:convertJsonMeterFirmwareManagement
-
+    convertJsonMeterFirmwareManagement:convertJsonMeterFirmwareManagement,
+    convertJson_CoilUploadData: convertJson_CoilUploadData
 }
 

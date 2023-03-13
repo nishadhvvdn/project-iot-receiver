@@ -18,6 +18,9 @@ var mySqlDb = process.env.mysqlDb;
 var mySqlUser = process.env.mysqlUsername;
 var mySqlPass = process.env.mysqlPassword;
 
+var redisHost = process.env.redisHost
+var redisPassword = process.env.redisPassword;
+
 //mysql connection
 function getConnection(callback) {
 	if (!objconnpool) {
@@ -103,6 +106,8 @@ var filePath = process.env.filePath;
 
 module.exports = {
 	IOTConnectionString: IOTConnectionString,
+	redisHost:redisHost,
+	redisPassword:redisPassword,
 	DBconnectionString: DBconnectionString,
 	rawData: rawData,
 	invalidPacket: invalidPacket,

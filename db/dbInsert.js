@@ -1366,6 +1366,26 @@ var updateConfigUpoadHSjobStatus = function (input, callback) {
         }
     });
 };
+
+async function updateCoilDetails(coilData,callback) {
+    console.log('update',coilData);
+    getDb(function (err, dbConn) {
+        if(err) {
+            console.log(err);
+        } else {
+            var collection = dbConn.db.collection('DELTA_Hypersprouts');
+            console.log("update starts");
+            collection.findOneAndUpdate(
+                {"DeviceID": coilData.DEVICE_ID, "Hypersprout_DeviceDetails.Coils._id": coilData.COIL_ID},
+                {$set:{"Hypersprout_DeviceDetails.Coils.$[elem].multiplier":coilData.MULTIPLIER}},
+                {multi:true,arrayFilters:[{"elem._id":coilData.COIL_ID}]},
+                function(err, doc){
+                    callback(err,doc);
+                });
+        }
+    })
+}
+
 module.exports = {
     insert_db: insert_db,
     getID_db: getID_db,
@@ -1376,5 +1396,6 @@ module.exports = {
     updateSelfHeal: updateSelfHeal,
     updateConfigUpoadHSjobStatus:updateConfigUpoadHSjobStatus,
     updateConfigUpoadJobStatus:updateConfigUpoadJobStatus,
-    getDb : getDb
+    getDb : getDb,
+    updateCoilDetails: updateCoilDetails
 }

@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var parser = require('../CEparser/parser');
 var dbInsert = require('../db/dbInsert');
 var postManagerial = require('./postManagerial');
 var protocolValidation = require('./protocolValidation.js');
 var configPara = require('../config/config.js');
 var logger = require('../config/logger.js');
 var insertDataConsumption = require('../db/dataConsumption.js');
+var mqttMessagePublish = require("./../helper/mqtt");
+var criticalList = ['HighOilTemperature', 'MeterDisconnected', 'LongOutagedetection', 'VoltageSagLine1', 'TamperLid']
+var minorList = ['PrimaryPowerUp', 'LowBatteryVoltage']
+
 
 /**
 * @description - Check for CRC correction and parse the data and hit the equivalent web service.
@@ -33,11 +36,12 @@ function decsionMaker(data, callback) {
                 });
         } else {
             // To check ProtocolSchema exists or Not
-            protocolValidation.revCheck(data, function (err, jsonObj) {
+            protocolValidation.revCheck(data, async function (err, jsonObj) {
                 if (err) {
                     console.log('rev check eror')
                     callback(err);
                 } else {
+                    var parser = await require('../CEparser/parser');
                     parser.getActionName(jsonObj, data, function (err, res) {
                         if (err) {
                             callback(err);
@@ -45,7 +49,7 @@ function decsionMaker(data, callback) {
                             console.log('This is the responce in decison')
                             console.log(res);
                             switch (res) {
-                                
+
                                 case 'COLLECTOR_REGISTERATION':
                                 case 'METER_REGISTERATION':
                                 case 'ACTION_FOR_DEVICE':
@@ -55,13 +59,12 @@ function decsionMaker(data, callback) {
                                             if (err) {
                                                 callback(err);
                                             } else {
-                                                if(result.Action === 'COLLECTOR_REGISTERATION'||result.Action === 'METER_REGISTERATION'){
-                                                    if(result.Data[0].SERIAL_NO)
-                                                    {
-                                                      result.Data[0].SERIAL_NO = result.Data[0].SERIAL_NO.replace(/\0/g, '');
+                                                if (result.Action === 'COLLECTOR_REGISTERATION' || result.Action === 'METER_REGISTERATION') {
+                                                    if (result.Data[0].SERIAL_NO) {
+                                                        result.Data[0].SERIAL_NO = result.Data[0].SERIAL_NO.replace(/\0/g, '');
                                                     }
-                                                    if(result.Data[0].ESN){
-                                                        result.Data[0].ESN = result.Data[0].ESN.replace(/\0/g,'');  
+                                                    if (result.Data[0].ESN) {
+                                                        result.Data[0].ESN = result.Data[0].ESN.replace(/\0/g, '');
                                                     }
                                                 }
                                                 if (result.Attribute === 'REGISTRATION_PARA' &&
@@ -93,7 +96,7 @@ function decsionMaker(data, callback) {
                                                                             "SerialNumber": result.Data[0].SERIAL_NO,
                                                                             "JobName": "Firmware Job",
                                                                             "JobType": "Collector Firmware Job",
-                                                                            "Status": { $nin: ["Completed", "Failed","Upgrade Failed","Upgrade not Required" ]}
+                                                                            "Status": { $nin: ["Completed", "Failed", "Upgrade Failed", "Upgrade not Required"] }
                                                                         },
                                                                         function (err, firmJob) {
                                                                             if (err) {
@@ -173,8 +176,8 @@ function decsionMaker(data, callback) {
                                                             }
                                                         });
                                                 } else if (result.Attribute === 'GET_DEVICE_CONFIG' &&
-                                                    (result.Action === 'COLLECTOR_REGISTERATION' ||result.Action === 'METER_REGISTERATION') ) {
-                                                        console.log("in get from device config")
+                                                    (result.Action === 'COLLECTOR_REGISTERATION' || result.Action === 'METER_REGISTERATION')) {
+                                                    console.log("in get from device config")
                                                     dbInsert.updateConfig(configPara.UpdateConfig, result,
                                                         function (err, getconfig) {
                                                             if (err) {
@@ -209,15 +212,15 @@ function decsionMaker(data, callback) {
                                                                             "SerialNumber": result.Data[0].SERIAL_NO,
                                                                             "JobName": "Firmware Job",
                                                                             "JobType": "Mesh Firmware Job",
-                                                                            "Status": { $nin: ["Completed", "Failed","Upgrade Failed","Upgrade not Required" ]}
+                                                                            "Status": { $nin: ["Completed", "Failed", "Upgrade Failed", "Upgrade not Required"] }
                                                                         },
                                                                         function (err, firmJob) {
                                                                             if (err) {
                                                                                 callback(err);
                                                                             } else {
                                                                                 if (firmJob.length > 0) {
-                                                                                    if (firmJob[firmJob.length-1].CardType === "MeshCard") {
-                                                                                        if (firmJob[firmJob.length-1].FirmwareID !== result.Data[0].MeshCardFirmwareVersion) {
+                                                                                    if (firmJob[firmJob.length - 1].CardType === "MeshCard") {
+                                                                                        if (firmJob[firmJob.length - 1].FirmwareID !== result.Data[0].MeshCardFirmwareVersion) {
                                                                                             result.Data[0]["Status"] = "Completed";
                                                                                         } else {
                                                                                             result.Data[0]["Status"] = "Failed";
@@ -225,7 +228,7 @@ function decsionMaker(data, callback) {
                                                                                         result.Data[0]["Version"] = result.Data[0].MeshCardFirmwareVersion;
                                                                                         result.Data[0]["CardType"] = "MeshCard";
                                                                                     } else {
-                                                                                        if (firmJob[firmJob.length-1].FirmwareID !== result.Data[0].MeterFirmwareVersion) {
+                                                                                        if (firmJob[firmJob.length - 1].FirmwareID !== result.Data[0].MeterFirmwareVersion) {
                                                                                             result.Data[0]["Status"] = "Completed";
                                                                                         } else {
                                                                                             result.Data[0]["Status"] = "Failed";
@@ -316,7 +319,7 @@ function decsionMaker(data, callback) {
                                                                             "SerialNumber": DeltalinkSerialNumber,
                                                                             "JobName": "Firmware Job",
                                                                             "JobType": "DeltaLink Firmware Job",
-                                                                            "Status": { $nin: ["Completed", "Failed","Upgrade Failed","Upgrade not Required" ]}
+                                                                            "Status": { $nin: ["Completed", "Failed", "Upgrade Failed", "Upgrade not Required"] }
                                                                         },
                                                                         function (err, firmJob) {
                                                                             if (err) {
@@ -530,7 +533,7 @@ function decsionMaker(data, callback) {
                                                             callback(err);
                                                         }
                                                         else {
-                                                           // console.log("clear log resWeb", resWeb)
+                                                            // console.log("clear log resWeb", resWeb)
                                                             callback(null, 'Webservice: ' + resWeb);
                                                         }
                                                     });
@@ -582,19 +585,19 @@ function decsionMaker(data, callback) {
                                                             callback(null, 'Webservice: ' + resWeb);
                                                         }
                                                     });
-                                            } else if (result.Attribute === 'METER_DATA_RATE' || result.Attribute === 'HS_DATA_RATE' || result.Attribute === 'HH_DATA_RATE'|| result.Attribute === 'DL_DATA_RATE' ){
+                                            } else if (result.Attribute === 'METER_DATA_RATE' || result.Attribute === 'HS_DATA_RATE' || result.Attribute === 'HH_DATA_RATE' || result.Attribute === 'DL_DATA_RATE') {
                                                 postManagerial.postManagerialData(result,
                                                     configPara.DataRateResponse, function (err, resWeb) {
                                                         if (err) {
                                                             callback(err);
                                                         }
                                                         else {
-                                                            console.log("Data Rate........", resWeb)                        
+                                                            console.log("Data Rate........", resWeb)
                                                             callback(null, 'Webservice: ' + resWeb);
                                                         }
                                                     });
                                             }
-                                             else if (result.Action === 'FACTORY_RESET') {
+                                            else if (result.Action === 'FACTORY_RESET') {
                                                 postManagerial.postManagerialData(result,
                                                     configPara.factoryResetMngmt, function (err, resWeb) {
                                                         if (err) {
@@ -651,7 +654,7 @@ function decsionMaker(data, callback) {
                                                     });
                                             }
                                             else if (result.Attribute === 'ALL_DEVICE') {
-                                             //   console.log(result)
+                                                //   console.log(result)
                                                 postManagerial.postManagerialData(result,
                                                     configPara.endPointRegDreg, function (err, resWeb) {
                                                         if (err) {
@@ -685,15 +688,16 @@ function decsionMaker(data, callback) {
                                     break;
                                 case 'EVENTS_ALARM_DATA':
                                     parser.convertJson_EventsAlarms(jsonObj, data, function (err, result) {
-                                       // console.log(result)
+                                        // console.log(result)
                                         if (err) {
                                             callback(err);
                                         } else {
-                                            // Insert Data to Database for Transformer / Meter Events/Alarms 
-                                            dbInsert.insert_db({ result, DBTimestamp: parser.getUTC() }, configPara.alarmEvent, function (err) {
+                                            // Insert Data to DataDatabase for Transformer / Meter Events/Alarms 
+                                            dbInsert.insert_db({ result, DBTimestamp: parser.getUTC() }, configPara.alarmEvent, async function (err) {
                                                 if (err) {
                                                     callback(err);
                                                 } else {
+                                                    await iotAlarmMessageHandler(result);
                                                     dbInsert.insert_db({ "Rev": result.Rev, "CellID": result.CellID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, "NoOfMeter": result.Transformer.NoOfMeter, DBTimestamp: parser.getUTC() }, configPara.eventLogs, function (err, val) {
                                                         if (err) {
                                                             callback(err);
@@ -745,12 +749,14 @@ function decsionMaker(data, callback) {
                                                 });
                                         }
                                     });
-                                    break;                                
+                                    break;
                                 case 'COLLECTOR_DATA_UPLOAD':
                                     parser.convertJson_TransactionData(jsonObj, data, function (err, result) {
                                         if (err) {
                                             callback(err);
                                         } else {
+                                            var sendData = {}
+
                                             logger.info("in COLLECTOR_DATA_UPLOAD");
                                             logger.info("in COLLECTOR_DATA_UPLOAD  Result : " + JSON.stringify(result));
                                             dbInsert.insert_db({
@@ -768,21 +774,27 @@ function decsionMaker(data, callback) {
                                                     }
                                                 });
                                             if (result.Attribute === 'COMBINED_TRANSACTIONAL_DATA') {
-                                              //  console.log("------------------------TRANSACTION DATA------------------------------------------>")
+                                                sendData.status = true;
+                                                sendData.data = result;
+
+                                                //  console.log("------------------------TRANSACTION DATA------------------------------------------>")
                                                 logger.info("------------------------TRANSACTION DATA------------------------------------------>");
                                                 dbInsert.updateTransdataScheduler({ "TransactionDataResponse": result, "TimeStampResponse": parser.getUTC() }, function (err, resWeb) {
                                                     if (err) {
-                                                      //  console.log("after update schedular" + err);
+                                                        //  console.log("after update schedular" + err);
                                                         callback(err);
                                                     }
                                                     else {
                                                         if (resWeb === 'Success') {
                                                             logger.info("in success Result COMBINED_TRANSACTIONAL_DATA");
-                                                            callback(null, "Transaction Data Inserted to DB");
+                                                            // callback(null, "Transaction Data Inserted to DB");
+                                                            callback(null, sendData);
                                                         }
                                                         else if (resWeb === 'Failure') {
                                                             logger.info("failure----+Bulk Data-");
-                                                            callback(null, 'Bulk Data');
+                                                            // callback(null, 'Bulk Data');
+                                                            callback(null, sendData);
+
                                                         }
                                                     }
                                                 });
@@ -859,7 +871,7 @@ function decsionMaker(data, callback) {
                                 case 'CELLULAR_FIRMWARE_UPGRADE':
                                 case 'BLUETOOTH_FIRMWARE_UPGRADE':
                                     parser.covertJsonFirmwareManagement(jsonObj, data, function (err, result) {
-                                     //   console.log("iNC-------------result", result);
+                                        //   console.log("iNC-------------result", result);
                                         if (err) {
                                             callback(err);
                                         } else {
@@ -876,7 +888,7 @@ function decsionMaker(data, callback) {
                                 case 'Configuration_Meter':
                                 case 'System_Settings':
                                     parser.covertJsonConfigManagement(jsonObj, data, function (err, result) {
-                                       // console.log("ConfigMgmnt-------------result", result);
+                                        // console.log("ConfigMgmnt-------------result", result);
                                         if (err) {
                                             callback(err);
                                         } else {
@@ -885,13 +897,13 @@ function decsionMaker(data, callback) {
                                                     callback(null, 'COnfig Management Webservice: ' + JSON.stringify(result) + resWeb);
                                                 });
                                             } else if (result.Attribute == 'METER_SCAN') {
-                                              //  console.log("METER_SCAN")
+                                                //  console.log("METER_SCAN")
                                                 parser.convertJson_MeshScan(jsonObj, data, function (err, result) {
-                                                 //   console.log(result)
+                                                    //   console.log(result)
                                                     if (err) {
                                                         callback(err);
                                                     } else {
-                                                      //  console.log("METER_SCAN++++++++++++++")
+                                                        //  console.log("METER_SCAN++++++++++++++")
                                                         postManagerial.postManagerialData(result, configPara.Meshscan, function (err, resWeb) {
                                                             callback(null, 'COnfig Management Webservice: ' + JSON.stringify(result) + resWeb);
                                                         });
@@ -899,7 +911,7 @@ function decsionMaker(data, callback) {
                                                 });
                                             } else {
                                                 parser.convertJson_CarrierList(jsonObj, data, function (err, result) {
-                                                  //  console.log(result)
+                                                    //  console.log(result)
                                                     if (err) {
                                                         callback(err);
                                                     } else {
@@ -923,21 +935,21 @@ function decsionMaker(data, callback) {
                                         if (err) {
                                             callback(err);
                                         } else {
-                                            dbInsert.updateDeviceConfig(configPara.UpdateConfig,configPara.Hypersprouts,configPara.meters, result,
+                                            dbInsert.updateDeviceConfig(configPara.UpdateConfig, configPara.Hypersprouts, configPara.meters, result,
                                                 function (err, updateDeviceConfig) {
                                                     if (err) {
                                                         callback(err);
-                                                    }else{
+                                                    } else {
                                                         dbInsert.insert_db({ "Rev": result.Rev, "CellID": result.CellID, "MessageID": result.MessageID, "Action": result.Action, "Attribute": result.Attribute, DBTimestamp: parser.getUTC() }, configPara.eventLogs, function (err, val) {
                                                             if (err) {
                                                                 callback(err);
                                                             } else {
-                                                                if(result.Attribute === 'METER_MESH'){
+                                                                if (result.Attribute === 'METER_MESH') {
                                                                     postManagerial.postManagerialData(result, configPara.MeshMacAclAddition, function (err, resWeb) {
                                                                         callback(null, 'Confif Update from Device Meter Mesh: ' + JSON.stringify(result) + resWeb);
                                                                     });
-                                                                }else
-                                                                callback(null, "Confif Update from Device" + val);
+                                                                } else
+                                                                    callback(null, "Confif Update from Device" + val);
                                                             }
                                                         });
                                                     }
@@ -947,19 +959,19 @@ function decsionMaker(data, callback) {
                                     break;
                                 case 'METER_FIRMWARE_UPGRADE':
                                 case 'METERCARD_FIRMWARE_UPGRADE':
-                                        parser.convertJsonMeterFirmwareManagement(jsonObj, data, res, function (err, result) {
-                                             if (err) {
-                                                 callback(err);
-                                             } else {
-                                                 if (res === 'METER_FIRMWARE_UPGRADE' || res === 'METERCARD_FIRMWARE_UPGRADE') {
-                                                     postManagerial.postManagerialData(result, configPara.firmwareMgmtMesh, function (err, resWebfirmwareMgmtMesh) {
-                                                         callback(null, 'Firmware Management Webservice: ' + JSON.stringify(result) + resWebfirmwareMgmtMesh);
-                                                     });
-                                                 }
-                                                 
-                                             }
-                                         });
-                                         break;
+                                    parser.convertJsonMeterFirmwareManagement(jsonObj, data, res, function (err, result) {
+                                        if (err) {
+                                            callback(err);
+                                        } else {
+                                            if (res === 'METER_FIRMWARE_UPGRADE' || res === 'METERCARD_FIRMWARE_UPGRADE') {
+                                                postManagerial.postManagerialData(result, configPara.firmwareMgmtMesh, function (err, resWebfirmwareMgmtMesh) {
+                                                    callback(null, 'Firmware Management Webservice: ' + JSON.stringify(result) + resWebfirmwareMgmtMesh);
+                                                });
+                                            }
+
+                                        }
+                                    });
+                                    break;
                                 case 'DELTALINK_FIRMWARE_UPGRADE':
                                     parser.covertJsonFirmwareManagement(jsonObj, data, function (err, result) {
                                         // console.log("Mesh-------------result", result);
@@ -981,7 +993,7 @@ function decsionMaker(data, callback) {
                                     break;
                                 case 'MAC_ACL':
                                     parser.covertJsonMacAclManagement(jsonObj, data, function (err, result) {
-                                       // console.log("MAC ACL-------------result", result);
+                                        // console.log("MAC ACL-------------result", result);
                                         if (err) {
                                             callback(err);
                                         } else {
@@ -1048,7 +1060,7 @@ function decsionMaker(data, callback) {
                                             } else {
                                                 if (result.Attribute === 'UPLOAD_METER_CONFIG' && result.Action === 'UPLOAD_CONFIG_SETTINGS' || result.Attribute === 'UPLOAD_HS_CONFIG' &&
                                                     result.Action === 'UPLOAD_CONFIG_SETTINGS') {
-                                                    if (result.Attribute === 'UPLOAD_METER_CONFIG'&&result.Type==='Response') {
+                                                    if (result.Attribute === 'UPLOAD_METER_CONFIG' && result.Type === 'Response') {
                                                         let configUpoadMeterStatus = result.Status;
                                                         if (configUpoadMeterStatus == 'Success') {
                                                             dbInsert.updateConfigUpoadJobStatus({ "configUploadResponse": result, "TimeStampResponse": parser.getUTC() }, function (err, resWeb) {
@@ -1062,7 +1074,7 @@ function decsionMaker(data, callback) {
                                                             })
                                                         }
                                                     } else {
-                                                        let configUpoadHSStatus =result.Status;
+                                                        let configUpoadHSStatus = result.Status;
                                                         if (configUpoadHSStatus == 'Success') {
                                                             dbInsert.updateConfigUpoadHSjobStatus({ "configUploadResponse": result, "TimeStampResponse": parser.getUTC() }, function (err, resWeb) {
                                                                 if (err) {
@@ -1077,22 +1089,36 @@ function decsionMaker(data, callback) {
                                                 }
                                             }
                                         });
-                                        break;
+                                    break;
                                 case 'DATA_CONSUMPTION':
-                                console.log("Data consumption -------------------")
+                                    console.log("Data consumption -------------------")
                                     parser.convertJson_DataConsumption(jsonObj, data,
                                         function (err, result) {
-                                            insertDataConsumption.insertDataConsumptionValue(result,function(err,result){
-                                                if(err){
-                                                    console.log("Errr in Data consumption",JSON.stringify(err));
+                                            insertDataConsumption.insertDataConsumptionValue(result, function (err, result) {
+                                                if (err) {
+                                                    console.log("Errr in Data consumption", JSON.stringify(err));
                                                     callback(err, null);
-                                                }else{
-                                                    console.log("data consumption successfull",JSON.stringify(result));
-                                                    callback(null,result);
+                                                } else {
+                                                    console.log("data consumption successfull", JSON.stringify(result));
+                                                    callback(null, result);
                                                 }
                                             });
-                                            
+
                                         });
+                                    break;
+                                case 'COIL_UPDATE':
+                                    console.log("Coil update --------------------------");
+                                    parser.convertJson_CoilUploadData(jsonObj, data, function (err, result) {
+                                        dbInsert.updateCoilDetails(result.Data[0],function(err, updateres){
+                                            if(err) {
+                                                console.log("Errr in Coil update", JSON.stringify(err));
+                                                callback(err, null);
+                                            } else {
+                                                console.log("Coil update successfull");
+                                                callback(null, "Coil update success");
+                                            }
+                                        });
+                                    })
                                     break;
                                 default:
                                     callback(null, 'Unknown Action defined in protocol Json file');
@@ -1106,6 +1132,63 @@ function decsionMaker(data, callback) {
         }
     });
 };
+
+
+async function iotAlarmMessageHandler(msgResult) {
+    // For Meter data
+    console.log("inside iotAlarmMessageHandler : ",msgResult)
+    if (msgResult.hasOwnProperty('meters')) {
+        if (msgResult.meters.length > 0) {
+            for (var i = 0; i < msgResult.meters.length; i++) {
+                let meter = msgResult.meters[i]
+                for (let key in meter) {
+                    if (meter[key] == 1) {
+                        let data = await formatIotAlertMessae(key);
+                        data.type = "Meter";
+                        let publishTopic = "alarms/meter/" + process.env.TENANT_NAME
+                        mqttMessagePublish.mqttMessagePublish(publishTopic, data)
+                    }
+                }
+            }
+        }
+    }
+    // For Transformer Data
+    if (msgResult.hasOwnProperty('Transformer')) {
+        for (let key in msgResult.Transformer) {
+            if (msgResult.Transformer[key] == 1) {
+                let data = await formatIotAlertMessae(key);
+                data.type = "Transformer";
+                let publishTopic = "alarms/transformer/" + process.env.TENANT_NAME
+                mqttMessagePublish.mqttMessagePublish(publishTopic, data)
+            }
+        }
+    }
+}
+
+function formatIotAlertMessae(message) {
+    if (criticalList.includes(message)) {
+        severity_level = "Critical";
+    } 
+    else if (minorList.includes(message)) {
+        severity_level = "Minor";
+        // is_high = true;
+    }
+    else {
+        severity_level = "Warning";
+    }
+    let messageType = message + " Alert from " + process.env.TENANT_NAME;
+    let data = {
+        "tenantName":process.env.TENANT_NAME,
+        "message": messageType,
+        "is_read": false,
+        "sender": "IOT Receiver",
+        "severity": severity_level,
+        "date": new Date()
+    }
+
+    return data;
+}
+
 
 module.exports = {
     decsionMaker: decsionMaker,
