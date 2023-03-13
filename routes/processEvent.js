@@ -34,26 +34,24 @@ OtherEventQueue.process(20, async (job, done) => {
       
         console.log("**** Inside The other Event Process ******")
 
-
-         dbInsert.insert_db({ RawData: new Buffer(job.data.event.body).toString('hex'), MessageFrom: "HS", DBTimestamp: new Date() }, configPara.rawData, function (err, val) {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log("RAW Data " + val);
-                }
-            });
-            decisionMaker.decsionMaker(new Buffer(job.data.event.body).toString('utf-8'), function (err, result) {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log("other_result -----------> ",result);
-
-                }
-            });
-
-        
+        dbInsert.insert_db({ RawData: new Buffer(job.data.event.body).toString('hex'), MessageFrom: "HS", DBTimestamp: new Date() }, configPara.rawData, function (err, val) {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log("RAW Data " + val);
+            }
+        });
+        decisionMaker.decsionMaker(new Buffer(job.data.event.body).toString('utf-8'), function (err, result) {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log("other_result -----------> ",result);
+            }
+            done();
+        });
     } catch (exception) {
         console.log(job.id + '---exception occured---->' + exception)
+        done();
         throw new Error('some unexpected error----->' + job.id);
     }
 });
