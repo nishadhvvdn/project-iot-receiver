@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'pilotdev-iotreceiver'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_51668B8D221D4D98B5B98D6BF96D4747 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_786A827AB1DE41FC9C2EEFE62B7A1F32 }}
           package: .
